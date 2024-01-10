@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\UserBlogController;
 use App\Http\Controllers\UserFrontendController;
+use App\Http\Controllers\UserProductController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -37,11 +38,23 @@ Route::get('/sign-up', [UserFrontendController::class,'index']);
 Route::post('/sign-up', [UserFrontendController::class,'signup']);
 Route::get('/sign-in', [UserFrontendController::class,'index2']);
 Route::post('/sign-in', [UserFrontendController::class,'signin']);
+Route::get('/logout', [UserFrontendController::class,'logout']);
 
 //blog user
 Route::get('/list-blog', [UserBlogController::class,'index']);
 Route::get('/blog-detail/{id}', [UserBlogController::class,'detailblog']);
 Route::get('/get-rate', [UserBlogController::class,'detailblog']);
+
+//myaccount user
+Route::get('/my-account', [UserFrontendController::class,'myaccount']);
+Route::get('/my-account/update', [UserFrontendController::class,'updateaccount']);
+Route::post('/my-account/update', [UserFrontendController::class,'updateuser']);
+
+//my product user
+Route::get('/my-account/product', [UserProductController::class,'index']);
+Route::get('/my-account/add-product', [UserProductController::class,'add']);
+Route::post('/my-account/add-product', [UserProductController::class,'create']);
+Route::get('/my-account/edit/{id}', [UserProductController::class,'edit']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

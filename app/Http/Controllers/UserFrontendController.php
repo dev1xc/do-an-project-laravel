@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,10 +33,48 @@ class UserFrontendController extends Controller
             'password' => $request -> password,
             'level' => 0
         ];
-        $remember = true;
+        $remember = false;
         if(Auth::attempt($login,$remember)){
+            $userId = Auth::id();
+            $remember = true;
+            $user = User::find($userId);
+            session()->put('nameSignIn', $user->name);
+            session()->put('HasSignIn', $remember);
             return redirect('/home-page')->with('success','');
+
         }
             return back()->with('error','');
+    }
+    public function logout() {
+        Auth::logout();
+        session()->forget('HasSignIn');
+        session()->forget('nameSignIn');
+        return redirect('/sign-in')->with('success','');
+    }
+    public function myaccount(){
+        return view('frontend.myaccount.myaccount');
+    }
+    public function updateaccount() {
+        $id = Auth::id();
+        $data = User::find($id);
+        $country = Country::all();
+        return view('frontend.myaccount.update', compact('data','country'));
+    }
+    public function updateuser(Request $request) {
+        $userId = Auth::id();
+        $data = $request->except(['_token']);
+        $data['password'] = Hash::make($data['password']);
+        $file = $request->avatar;
+        if(!empty($file)){
+            $data['avatar'] = $file->getClientOriginalName();
+        }
+        if(User::where('id', $userId)->update($data)){
+            if(!empty($file)){
+                $file->move('upload/user/avatar', $file->getClientOriginalName());
+            }
+            return redirect("/my-account/update")->with("success","Success");
+        }else {
+            return back()->with("error","Error");
+        }
     }
 }
