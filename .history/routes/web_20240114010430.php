@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\UserBlogController;
@@ -56,7 +55,6 @@ Route::get('/my-account/product', [UserProductController::class,'index']);
 Route::get('/my-account/add-product', [UserProductController::class,'add']);
 Route::post('/my-account/add-product', [UserProductController::class,'create']);
 Route::get('/my-account/edit/{id}', [UserProductController::class,'edit']);
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -84,10 +82,5 @@ Route::post('upload_image_ckfinder', [BlogController::class, 'uploadImage'])->na
 Route::post('save', [BlogController::class, 'store'])->name('store');
 
 
-//Category route
-Route::get('/category', [CategoryController::class,'index']);
-Route::get('/add-category', [CategoryController::class,'add']);
-Route::post('/add-category', [CategoryController::class,'create']);
-Route::get('/edit-category/{id}', [CategoryController::class, 'edit']);
-Route::post('/edit-category/{id}', [CategoryController::class, 'update']);
-Route::get('/delete-category/{id}', [CategoryController::class, 'delete']);
+
+

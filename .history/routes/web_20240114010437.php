@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\UserBlogController;
@@ -84,10 +83,5 @@ Route::post('upload_image_ckfinder', [BlogController::class, 'uploadImage'])->na
 Route::post('save', [BlogController::class, 'store'])->name('store');
 
 
-//Category route
-Route::get('/category', [CategoryController::class,'index']);
-Route::get('/add-category', [CategoryController::class,'add']);
-Route::post('/add-category', [CategoryController::class,'create']);
-Route::get('/edit-category/{id}', [CategoryController::class, 'edit']);
-Route::post('/edit-category/{id}', [CategoryController::class, 'update']);
-Route::get('/delete-category/{id}', [CategoryController::class, 'delete']);
+
+

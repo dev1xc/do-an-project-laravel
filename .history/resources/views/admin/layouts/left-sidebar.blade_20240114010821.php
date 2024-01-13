@@ -29,9 +29,9 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/category" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/blog" aria-expanded="false">
                         <i class="mdi mdi-account-network"></i>
-                        <span class="hide-menu">Category</span>
+                        <span class="hide-menu">Blog</span>
                     </a>
                 </li>
                  <li class="sidebar-item">

@@ -88,6 +88,4 @@ Route::post('save', [BlogController::class, 'store'])->name('store');
 Route::get('/category', [CategoryController::class,'index']);
 Route::get('/add-category', [CategoryController::class,'add']);
 Route::post('/add-category', [CategoryController::class,'create']);
-Route::get('/edit-category/{id}', [CategoryController::class, 'edit']);
-Route::post('/edit-category/{id}', [CategoryController::class, 'update']);
-Route::get('/delete-category/{id}', [CategoryController::class, 'delete']);
+Route::get('/edit-blog/{id}', [BlogController::class, 'edit']);
