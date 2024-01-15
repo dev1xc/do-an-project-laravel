@@ -212,43 +212,7 @@
                 <div class="response-area">
                     <h2>3 RESPONSES</h2>
                     @foreach ($data_cmt as $item)
-                    <ul class="media-list">
-                        <li class="media">
 
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="images/blog/man-two.jpg" alt="">
-                            </a>
-                            <div class="media-body">
-                                <ul class="sinlge-post-meta">
-                                    <li><i class="fa fa-user"></i>{{ $item -> id_user }}</li>
-                                    <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                    <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
-                                </ul>
-                                <p>{{ $item -> comment }}</p>
-                                <a class="btn btn-primary" href=""><i class="fa fa-reply"></i>Replay</a>
-                            </div>
-                        </li>
-
-                        @foreach ($data_cmt_son as $son)
-                            @if($item->id == $son->blog_father)
-                            <li class="media second-media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="images/blog/man-three.jpg" alt="">
-                                </a>
-                                <div class="media-body">
-                                    <ul class="sinlge-post-meta">
-                                        <li><i class="fa fa-user"></i>{{ $son -> id_user }}</li>
-                                        <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                        <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
-                                    </ul>
-                                    <p>{{ $son -> comment }}</p>
-                                </div>
-                            </li>
-                            @endif
-                        @endforeach
-
-
-                    </ul>
                     @endforeach
                 </div><!--/Response-area-->
                 <div class="replay-box">

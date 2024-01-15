@@ -13,16 +13,15 @@ class UserBlogController extends Controller
     //
     public function index() {
         $data = Blog::paginate(3);
-        return view('frontend.blog.list-blog', compact('data'));
+        $data_cmt = Comment::all();
+        return view('frontend.blog.list-blog', compact('data','data_cmt'));
     }
     public function detailblog(Request $request, $id) {
         $id_user = Auth::id();
         $data = Blog::Where('id', $request -> id)->first();
         session()->put('idBlog', $request->id);
         $getAvg = RateBlog::where('id_blog',$id)->avg('rate');
-        $data_cmt = Comment::where('blog_father','=', 0)->get();
-        $data_cmt_son = Comment::where('blog_father','>', 0)->get();
-        return view('frontend.blog.blog-detail', compact('data','data_cmt','data_cmt_son','getAvg'));
+        return view('frontend.blog.blog-detail', compact('data','getAvg'));
     }
     public function comment($id, Request $request) {
         $id_user = Auth::id();

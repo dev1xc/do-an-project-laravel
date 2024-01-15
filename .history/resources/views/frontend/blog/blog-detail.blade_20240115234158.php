@@ -241,7 +241,8 @@
                                         <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                         <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                     </ul>
-                                    <p>{{ $son -> comment }}</p>
+                                    <p>{{ $son ->  }}</p>
+                                    <a class="btn btn-primary" href=""><i class="fa fa-reply"></i>Replay</a>
                                 </div>
                             </li>
                             @endif

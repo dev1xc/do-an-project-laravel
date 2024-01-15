@@ -48,7 +48,6 @@ Route::get('/logout', [UserFrontendController::class,'logout']);
 //blog user
 Route::get('/list-blog', [UserBlogController::class,'index']);
 Route::get('/blog-detail/{id}', [UserBlogController::class,'detailblog']);
-Route::post('/blog-detail/{id}', [UserBlogController::class,'comment']);
 Route::get('/get-rate', [UserBlogController::class,'detailblog']);
 
 //myaccount user
