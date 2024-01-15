@@ -20,6 +20,6 @@ class RateController extends Controller
         }else {
             RateBlog::create($data);
         }
-
+        $getAvg = RateBlog::avg('rate');
     }
 }

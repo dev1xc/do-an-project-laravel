@@ -182,7 +182,7 @@
                             <div class="star_3 ratings_stars"><input value="3" type="hidden"></div>
                             <div class="star_4 ratings_stars"><input value="4" type="hidden"></div>
                             <div class="star_5 ratings_stars"><input value="5" type="hidden"></div>
-                            <span class="rate-np">{{ $getAvg }}</span>
+                            <span class="rate-np">{{  }}</span>
                         </div>
                     </div>
                 </div><!--/rating-area-->
