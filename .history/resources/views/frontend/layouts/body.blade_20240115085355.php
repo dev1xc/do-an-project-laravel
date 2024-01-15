@@ -213,13 +213,12 @@
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Features Items</h2>
-                    @foreach ($data as $item)
                     <div class="col-sm-4">
-
-                    <div class="product-image-wrapper">
+                       @foreach ($data as $item)
+                       <div class="product-image-wrapper">
                         <div class="single-products" id="product1">
                             <div class="productinfo text-center">
-                                <img src="{{ asset('/upload/product/image/'.$item -> image ) }}" alt="" />
+                                <img src="images/home/product1.jpg" alt="" />
                                 <h2>{{ $item -> name }}</h2>
                                 <p>{{ $item -> price }}</p>
                                 <a href="#" class="btn btn-default add-to-cart"><i
@@ -228,11 +227,9 @@
                             <div class="product-overlay">
                                 <div class="overlay-content">
                                     <h2>{{ $item -> name }}</h2>
-                                    <p>{{ $item -> price }}</p>
+                                    <p>Easy Polo Black Edition</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i
                                             class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    <a href="/detail-product/{{ $item -> id }}" class="btn btn-default add-to-cart"><i
-                                            class="fa fa-shopping-cart"></i>Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -243,8 +240,8 @@
                             </ul>
                         </div>
                     </div>
+                       @endforeach
                     </div>
-                    @endforeach
                 </div><!--features_items-->
 
                 <div class="category-tab"><!--category-tab-->

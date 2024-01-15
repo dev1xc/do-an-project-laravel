@@ -215,7 +215,7 @@
                     <h2 class="title text-center">Features Items</h2>
                     @foreach ($data as $item)
                     <div class="col-sm-4">
-
+                        <a href="/detail-product/{{ $item -> id }}">
                     <div class="product-image-wrapper">
                         <div class="single-products" id="product1">
                             <div class="productinfo text-center">
@@ -225,14 +225,13 @@
                                 <a href="#" class="btn btn-default add-to-cart"><i
                                         class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
+                        </a>
                             <div class="product-overlay">
                                 <div class="overlay-content">
                                     <h2>{{ $item -> name }}</h2>
                                     <p>{{ $item -> price }}</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i
                                             class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    <a href="/detail-product/{{ $item -> id }}" class="btn btn-default add-to-cart"><i
-                                            class="fa fa-shopping-cart"></i>Detail</a>
                                 </div>
                             </div>
                         </div>

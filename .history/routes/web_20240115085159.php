@@ -34,8 +34,8 @@ Route::get('/test', function () {
     return view('ckeditor');
 });
 Route::get('/home-page', function () {
-    $data = Product::orderBy('created_at', 'desc')->paginate(6);
-    return view('frontend.layouts.index',compact('data'));
+    $data = Product::orderBy('created_at', 'desc');
+    return view('frontend.layouts.index');
 });
 //ddang nhap dang ki
 Route::get('/sign-up', [UserFrontendController::class,'index']);
@@ -61,9 +61,6 @@ Route::post('/my-account/add-product', [UserProductController::class,'create']);
 Route::get('/my-account/edit/{id}', [UserProductController::class,'edit']);
 Route::post('/my-account/edit/{id}', [UserProductController::class,'update']);
 Route::get('/my-account/delete/{id}', [UserProductController::class,'delete']);
-
-//detail - product
-Route::get('/detail-product/{id}', [UserProductController::class,'detail']);
 
 Auth::routes();
 

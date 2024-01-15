@@ -63,7 +63,7 @@ Route::post('/my-account/edit/{id}', [UserProductController::class,'update']);
 Route::get('/my-account/delete/{id}', [UserProductController::class,'delete']);
 
 //detail - product
-Route::get('/detail-product/{id}', [UserProductController::class,'detail']);
+
 
 Auth::routes();
 

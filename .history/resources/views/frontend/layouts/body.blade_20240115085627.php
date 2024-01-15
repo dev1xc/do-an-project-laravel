@@ -216,7 +216,7 @@
                     @foreach ($data as $item)
                     <div class="col-sm-4">
 
-                    <div class="product-image-wrapper">
+                       <div class="product-image-wrapper">
                         <div class="single-products" id="product1">
                             <div class="productinfo text-center">
                                 <img src="{{ asset('/upload/product/image/'.$item -> image ) }}" alt="" />
@@ -231,8 +231,6 @@
                                     <p>{{ $item -> price }}</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i
                                             class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    <a href="/detail-product/{{ $item -> id }}" class="btn btn-default add-to-cart"><i
-                                            class="fa fa-shopping-cart"></i>Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -243,8 +241,8 @@
                             </ul>
                         </div>
                     </div>
+                       @endforeach
                     </div>
-                    @endforeach
                 </div><!--features_items-->
 
                 <div class="category-tab"><!--category-tab-->

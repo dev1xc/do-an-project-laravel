@@ -52,9 +52,8 @@ class UserProductController extends Controller
         return redirect("/my-account/product")->with("success","");
     }
 
-    public function detail($id) {
-        $data = Product::find($id);
-        $brand = Brand::find($data->id_brand);
-        return view("frontend.product.detail", compact("data",'brand'));
+    public function detail() {
+        // $data = Product::find($id);
+        return view("frontend.product.detail");
     }
 }

@@ -53,8 +53,7 @@ class UserProductController extends Controller
     }
 
     public function detail($id) {
-        $data = Product::find($id);
-        $brand = Brand::find($data->id_brand);
-        return view("frontend.product.detail", compact("data",'brand'));
+        // $data = Product::find($id);
+        return view("frontend.product.detail");
     }
 }

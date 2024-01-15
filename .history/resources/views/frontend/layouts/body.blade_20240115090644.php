@@ -231,8 +231,8 @@
                                     <p>{{ $item -> price }}</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i
                                             class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    <a href="/detail-product/{{ $item -> id }}" class="btn btn-default add-to-cart"><i
-                                            class="fa fa-shopping-cart"></i>Detail</a>
+                                    <a href="#" class="btn btn-default add-to-cart"><i
+                                            class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
                             </div>
                         </div>
