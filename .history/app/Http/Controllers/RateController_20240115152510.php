@@ -17,8 +17,8 @@ class RateController extends Controller
         $data['id_blog'] = session('idBlog');
         if(RateBlog::where('id_user', $id_user)->where('id_blog',$id_blog)->exists()) {
             RateBlog::where('id_user',$id_user)->where('id_blog',$id_blog)->update($data);
-        }else {
+        }else
             RateBlog::create($data);
-        }
+
     }
 }
