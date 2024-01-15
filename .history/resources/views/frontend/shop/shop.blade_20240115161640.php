@@ -152,11 +152,6 @@
                         <option value="{{ $item -> id }}">{{ $item -> name }}</option>
                         @endforeach
                       </select>
-                      <select name="brand">
-                        @foreach ($data_brand as $item)
-                        <option value="{{ $item -> id }}">{{ $item -> name }}</option>
-                        @endforeach
-                      </select>
                       <br>
                     <button type="submit">Search</button>
                 </form>

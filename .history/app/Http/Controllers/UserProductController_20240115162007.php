@@ -66,7 +66,7 @@ class UserProductController extends Controller
     }
     public function search(Request $request) {
         $value = $request -> except('_token');
-        $data = Product::where('name', 'like', '%'.$value['name'].'%')->where('id_category','=', $value['category'])->where('id_brand','=', $value['brand'])->paginate(9);
+        $data = Product::where('name', 'like', '%'.$value['name'].'%')->where('id_category','=', $value['category'])->where('id_brand','=', $value['category'])->paginate(9);
         return view('frontend.shop.search', compact('data'));
     }
 }

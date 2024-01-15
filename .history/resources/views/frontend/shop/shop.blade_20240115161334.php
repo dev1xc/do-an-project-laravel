@@ -147,17 +147,7 @@
                 <form method="GET" action="/search">
                     @csrf
                     <input type="text" name="name" placeholder="Name">
-                    <select name="category">
-                        @foreach ($data_category as $item)
-                        <option value="{{ $item -> id }}">{{ $item -> name }}</option>
-                        @endforeach
-                      </select>
-                      <select name="brand">
-                        @foreach ($data_brand as $item)
-                        <option value="{{ $item -> id }}">{{ $item -> name }}</option>
-                        @endforeach
-                      </select>
-                      <br>
+                    <select name="category" id=""></select>
                     <button type="submit">Search</button>
                 </form>
                 <br><br><br>

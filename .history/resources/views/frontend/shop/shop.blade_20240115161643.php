@@ -152,8 +152,8 @@
                         <option value="{{ $item -> id }}">{{ $item -> name }}</option>
                         @endforeach
                       </select>
-                      <select name="brand">
-                        @foreach ($data_brand as $item)
+                      <select name="category">
+                        @foreach ($data_category as $item)
                         <option value="{{ $item -> id }}">{{ $item -> name }}</option>
                         @endforeach
                       </select>

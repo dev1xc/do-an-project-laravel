@@ -148,14 +148,10 @@
                     @csrf
                     <input type="text" name="name" placeholder="Name">
                     <select name="category">
-                        @foreach ($data_category as $item)
-                        <option value="{{ $item -> id }}">{{ $item -> name }}</option>
-                        @endforeach
-                      </select>
-                      <select name="brand">
-                        @foreach ($data_brand as $item)
-                        <option value="{{ $item -> id }}">{{ $item -> name }}</option>
-                        @endforeach
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="vw">VW</option>
+                        <option value="audi" selected>Audi</option>
                       </select>
                       <br>
                     <button type="submit">Search</button>
