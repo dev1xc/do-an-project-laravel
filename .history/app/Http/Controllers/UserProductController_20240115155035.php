@@ -60,11 +60,6 @@ class UserProductController extends Controller
     }
     public function getAllProduct() {
         $data = Product::paginate(9);
-        return view('frontend.shop.shop', compact('data'));
-    }
-    public function search(Request $request) {
-        $value = $request -> except('_token');
-        $data = Product::where('name', 'like', '%'.$value['name'].'%')->paginate(9);
-        return view('frontend.shop.search', compact('data'));
+        return view('', compact('data'));
     }
 }

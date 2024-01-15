@@ -73,7 +73,7 @@ Route::get('/get-rate-star',[RateController::class, 'create']);
 //get shop
 Route::get('/shop', [UserProductController::class,'getAllProduct']);
 //search
-Route::get('/search', [UserProductController::class,'search']);
+Route::get('/search', [UserProductController::class,'getAllProduct'])
 
 Auth::routes();
 
