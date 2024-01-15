@@ -373,7 +373,16 @@
 			}
 		})
 	};
-
+    $.ajax({
+        type: "GET",
+        url: "/get-rate-star",
+        data: {
+            rate: Values,
+        },
+        success: function (response) {
+            console.log(Values);
+        }
+    });
 	$.fn.slider.defaults = {
 		min: 0,
 		max: 10,

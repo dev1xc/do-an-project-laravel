@@ -166,7 +166,6 @@
                             <option value="1000-2000">1000-2000</option>
                             <option value="2000-10000">2000-10000</option>
                         </select>
-
                         <br>
                         <button type="submit">Search</button>
                     </form>

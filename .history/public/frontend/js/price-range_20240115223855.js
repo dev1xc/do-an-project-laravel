@@ -182,8 +182,7 @@
 					' : ' +
 					this.formater(this.value[1])
 				);
-                minValue = this.formater(this.value[0]);
-                maxValue = this.formater(this.value[1]);
+                minValue =this.formater(this.value[0]);
 				console.log(this.formater(this.value[0]));
 				console.log(this.formater(this.value[1]));
 				$('#min').val(this.formater(this.value[0]));

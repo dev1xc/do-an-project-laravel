@@ -66,9 +66,8 @@ class UserProductController extends Controller
     }
     public function search(Request $request) {
         $value = $request -> except('_token');
-        $price_temp = $value['price'];
-        $price = explode('-', $price_temp);
-        $data = Product::where('name', 'like', '%'.$value['name'].'%')->where('id_category','=', $value['category'])->where('id_brand','=', $value['brand'])->whereBetween('price',[$price[0],$price[1]])->paginate(9);
+        $price = $value['price']
+        $data = Product::where('name', 'like', '%'.$value['name'].'%')->where('id_category','=', $value['category'])->where('id_brand','=', $value['brand'])->paginate(9);
         return view('frontend.shop.search', compact('data'));
     }
 }

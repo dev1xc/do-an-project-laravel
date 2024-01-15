@@ -18,7 +18,7 @@
  * ========================================================= */
 
 !function( $ ) {
-    let minValue,maxValue = 0;
+    let minValue = maxValue = 0;
 	var Slider = function(element, options) {
 		this.element = $(element);
 		this.picker = $('<div class="slider">'+
@@ -182,8 +182,6 @@
 					' : ' +
 					this.formater(this.value[1])
 				);
-                minValue = this.formater(this.value[0]);
-                maxValue = this.formater(this.value[1]);
 				console.log(this.formater(this.value[0]));
 				console.log(this.formater(this.value[1]));
 				$('#min').val(this.formater(this.value[0]));

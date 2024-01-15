@@ -75,6 +75,7 @@ Route::get('/shop', [UserProductController::class,'getAllProduct']);
 //search
 Route::get('/search', [UserProductController::class,'search']);
 //price
+Route::get('/get-rate-star',[RateController::class, 'create']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

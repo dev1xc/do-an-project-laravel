@@ -161,12 +161,11 @@
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
-                        <select name="price">
+                        {{-- <select name="price">
                             <option value="0-1000"> < 1000</option>
                             <option value="1000-2000">1000-2000</option>
                             <option value="2000-10000">2000-10000</option>
-                        </select>
-
+                        </select> --}}
                         <br>
                         <button type="submit">Search</button>
                     </form>

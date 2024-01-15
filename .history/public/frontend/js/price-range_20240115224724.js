@@ -373,7 +373,17 @@
 			}
 		})
 	};
-
+    $.ajax({
+        type: "GET",
+        url: "/get-price-range",
+        data: {
+            min: minValue,
+            max: maxValue,
+        },
+        success: function (response) {
+            console.log('Success');
+        }
+    });
 	$.fn.slider.defaults = {
 		min: 0,
 		max: 10,

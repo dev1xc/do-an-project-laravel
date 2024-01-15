@@ -134,9 +134,9 @@
                             <h2>Price Range</h2>
                             <div class="well">
                                 <input type="text" class="span2" value="" data-slider-min="0"
-                                    data-slider-max="1000" data-slider-step="5" data-slider-value="[250,1000]"
+                                    data-slider-max="10000" data-slider-step="20" data-slider-value="[250,10000]"
                                     id="sl2"><br />
-                                <b>0</b> <b class="pull-right">1000</b>
+                                <b>0</b> <b class="pull-right">10000</b>
                             </div>
                         </div><!--/price-range-->
 
@@ -161,12 +161,11 @@
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
-                        <select name="price">
+                        {{-- <select name="price">
                             <option value="0-1000"> < 1000</option>
                             <option value="1000-2000">1000-2000</option>
                             <option value="2000-10000">2000-10000</option>
-                        </select>
-
+                        </select> --}}
                         <br>
                         <button type="submit">Search</button>
                     </form>
