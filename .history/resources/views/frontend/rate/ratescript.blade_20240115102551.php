@@ -6,37 +6,7 @@
 <link type="text/css" rel="stylesheet" href="{{ asset('rate/css/rate.css') }}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="{{ asset('rate/js/jquery-1.9.1.min.js') }}"></script>
-@if (!session()->exists('HasSignIn'))
-<script>
-    $(document).ready(function(){
-        //vote
-        $('.ratings_stars').hover(
-            // Handles the mouseover
-            function() {
-                $(this).prevAll().andSelf().addClass('ratings_hover');
-                // $(this).nextAll().removeClass('ratings_vote');
-            },
-            function() {
-                $(this).prevAll().andSelf().removeClass('ratings_hover');
-                // set_votes($(this).parent());
-            }
-        );
-
-        $('.ratings_stars').click(function(){
-            var Values =  $(this).find("input").val();
-            alert('Ban phai dang nhap');
-            window.location.href = '/sign-in'
-            if ($(this).hasClass('ratings_over')) {
-                $('.ratings_stars').removeClass('ratings_over');
-                $(this).prevAll().andSelf().addClass('ratings_over');
-            } else {
-                $(this).prevAll().andSelf().addClass('ratings_over');
-            }
-        });
-    });
-</script>
-@endif
-@if (session()->exists('HasSignIn'))
+@if (session()->exists('hasSignIn'))
 <script>
     $(document).ready(function(){
         //vote
@@ -76,5 +46,4 @@
 </script>
 
 @endif
-
 

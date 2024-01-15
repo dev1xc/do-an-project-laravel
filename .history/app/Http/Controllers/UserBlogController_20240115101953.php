@@ -14,7 +14,7 @@ class UserBlogController extends Controller
     }
     public function detailblog(Request $request) {
         $data = Blog::Where('id', $request -> id)->first();
-        session()->put('idBlog', $request->id);
+        session()->put('nameSignIn', $user->name);
         return view('frontend.blog.blog-detail', compact('data'));
     }
 }

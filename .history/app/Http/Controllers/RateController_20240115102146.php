@@ -16,8 +16,6 @@ class RateController extends Controller
         $data['id_blog'] = session('idBlog');
         if(isset($id_user)){
             RateBlog::create($data);
-        }else {
-            return redirect('/sign-in')->with('error','');
         }
     }
 }

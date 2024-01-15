@@ -67,8 +67,7 @@ Route::get('/my-account/delete/{id}', [UserProductController::class,'delete']);
 Route::get('/detail-product/{id}', [UserProductController::class,'detail']);
 
 //get rate star
-Route::get('/get-rate-star',[RateController::class, 'create']);
-// Route::post('/get-rate-star',[RateController::class, 'create']);
+Route::post('/get-rate-star',[RateController::class, 'create']);
 
 Auth::routes();
 

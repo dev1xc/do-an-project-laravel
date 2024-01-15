@@ -1,0 +1,86 @@
+@extends('frontend.blog.blog-detail')
+@section('rate')
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+        <meta content="" name="copyright">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta content="ja" http-equiv="Content-Language">
+        <meta content="text/css" http-equiv="Content-Style-Type">
+        <meta content="text/javascript" http-equiv="Content-Script-Type">
+        <meta id="viewport" name="viewport" content="" />
+        <script>
+            if (screen.width <= 736) {
+                document.getElementById("viewport").setAttribute("content",
+                    "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no");
+            }
+        </script>
+        <title>Ohana</title>
+        <link type="text/css" rel="stylesheet" href="css/rate.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                //vote
+                var Values = $(this).find("input").val();
+                $('.ratings_stars').hover(
+                    // Handles the mouseover
+                    function() {
+                        $(this).prevAll().andSelf().addClass('ratings_hover');
+                        // $(this).nextAll().removeClass('ratings_vote');
+                    },
+                    function() {
+                        $(this).prevAll().andSelf().removeClass('ratings_hover');
+                        // set_votes($(this).parent());
+                    }
+                );
+
+                $('.ratings_stars').click(function() {
+
+                    alert(Values);
+                    if ($(this).hasClass('ratings_over')) {
+                        $('.ratings_stars').removeClass('ratings_over');
+                        $(this).prevAll().andSelf().addClass('ratings_over');
+                    } else {
+                        $(this).prevAll().andSelf().addClass('ratings_over');
+                    }
+                });
+                let value = $(this).find("input").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/get-rate-star",
+                    data: Values,
+                    dataType: "JSON",
+                    success: function(response) {
+                        console.log(Success);
+                    }
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+
+        <body>
+            <!-- begin header -->
+
+
+
+            <div class="rate">
+                <div class="vote">
+                    <div class="star_1 ratings_stars"><input value="1" type="hidden"></div>
+                    <div class="star_2 ratings_stars"><input value="2" type="hidden"></div>
+                    <div class="star_3 ratings_stars"><input value="3" type="hidden"></div>
+                    <div class="star_4 ratings_stars"><input value="4" type="hidden"></div>
+                    <div class="star_5 ratings_stars"><input value="5" type="hidden"></div>
+                    <span class="rate-np">4.5</span>
+                </div>
+            </div>
+
+
+        </body>
+
+    </html>
+@endsection

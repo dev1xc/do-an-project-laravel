@@ -11,13 +11,9 @@ class RateController extends Controller
     //
     public function create(Request $request) {
         $id_user = Auth::id();
-        $data['rate'] = $request->get('rate');
+        $data = $request->all();
         $data['id_user'] = $id_user;
-        $data['id_blog'] = session('idBlog');
-        if(isset($id_user)){
-            RateBlog::create($data);
-        }else {
-            return redirect('/sign-in')->with('error','');
-        }
+
+        RateBlog::create($data_all);
     }
 }

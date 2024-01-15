@@ -5,7 +5,6 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CountryController;
-use App\Http\Controllers\RateController;
 use App\Http\Controllers\UserBlogController;
 use App\Http\Controllers\UserFrontendController;
 use App\Http\Controllers\UserProductController;
@@ -67,8 +66,7 @@ Route::get('/my-account/delete/{id}', [UserProductController::class,'delete']);
 Route::get('/detail-product/{id}', [UserProductController::class,'detail']);
 
 //get rate star
-Route::get('/get-rate-star',[RateController::class, 'create']);
-// Route::post('/get-rate-star',[RateController::class, 'create']);
+Route::post('/get-rate-star',[]);
 
 Auth::routes();
 

@@ -13,7 +13,7 @@ class UserProductController extends Controller
     //
     public function index() {
         $userId = Auth::id();
-        $products = Product::where('id_user',$userId)->paginate(5);
+        $products = Product::find('id_user',$userId)->paginate(5);
         return view("frontend.myaccount.product", compact("products"));
     }
     public function add() {

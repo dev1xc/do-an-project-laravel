@@ -25,7 +25,6 @@
         $('.ratings_stars').click(function(){
             var Values =  $(this).find("input").val();
             alert('Ban phai dang nhap');
-            window.location.href = '/sign-in'
             if ($(this).hasClass('ratings_over')) {
                 $('.ratings_stars').removeClass('ratings_over');
                 $(this).prevAll().andSelf().addClass('ratings_over');

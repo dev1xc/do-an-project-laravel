@@ -17,7 +17,7 @@ class RateController extends Controller
         if(isset($id_user)){
             RateBlog::create($data);
         }else {
-            return redirect('/sign-in')->with('error','');
+            return redirect('')->with('error','');
         }
     }
 }
