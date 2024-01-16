@@ -1,0 +1,10 @@
+<script>
+    $(document).ready(function(){
+    $("#reply_comment").click(function(){
+    $(".replay_box").hide();
+  });
+  $("#repy_comment").click(function(){
+    $(".replay_box").show();
+  });
+});
+</script>

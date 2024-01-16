@@ -1,5 +1,11 @@
 @extends('frontend.layouts.main')
-
+<script>
+    $(document).ready(function () {
+        $('div.replay_box').click(function() {
+            $(this)
+        })
+    });
+</script>
 @section('content')
 <section>
     <div class="container">
@@ -226,29 +232,29 @@
                                     <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                 </ul>
                                 <p>{{ $item -> comment }}</p>
-                                <a class="btn btn-primary"  id='reply_comment'><i class="fa fa-reply"></i>Replay</a>
-
+                                <a class="btn btn-primary" href=""><i class="fa fa-reply"></i>Replay</a>
+                                <div class="replay-box">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h2>Leave a replay</h2>
+                                            <form method="POST">
+                                                @csrf
+                                            <div class="text-area">
+                                                <div class="blank-arrow">
+                                                    <label>Your Name</label>
+                                                </div>
+                                                <span>*</span>
+                                                <textarea name="comment" rows="11"></textarea>
+                                                <input type="text" name='blog_father' value="{{ $item -> id }}" hidden>
+                                                <button type="submit">Submit</button>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div><!--/Repaly Box-->
 
                             </div>
                         </li>
-                        <div class="replay-box-son" display="none" style="display: none">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h2>Leave a replay</h2>
-                                    <form method="POST">
-                                        @csrf
-                                    <div class="text-area">
-                                        <div class="blank-arrow">
-                                            <label>Your Name</label>
-                                        </div>
-                                        <textarea name="comment" rows="11"></textarea>
-                                        <input type="text" name='blog_father' value="{{ $item -> id }}" hidden>
-                                        <button type="submit">Submit</button>
-                                    </div>
-                                </form>
-                                </div>
-                            </div>
-                        </div><!--/Repaly Box-->
 
                         @foreach ($data_cmt_son as $son)
                             @if($item->id == $son->blog_father)

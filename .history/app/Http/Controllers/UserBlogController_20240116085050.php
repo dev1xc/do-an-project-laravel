@@ -30,7 +30,7 @@ class UserBlogController extends Controller
         $data['id_user'] = $id_user;
         $data['id_blog'] = $id;
         if(isset($data['blog_father'])){
-            $data['blog_father'] = $request->blog_father;
+            $data['blog_father'] = $data[''];
         }
         Comment::create($data);
         return redirect('/blog-detail/'.$id)->with('success','');

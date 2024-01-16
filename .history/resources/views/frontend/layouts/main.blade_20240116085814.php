@@ -31,7 +31,7 @@
 
     {{-- Rate --}}
         @include('frontend.rate.ratescript')
-        @include('frontend.blog.comment')
+        @include('frontend.')
 
 </head>
 <body>
