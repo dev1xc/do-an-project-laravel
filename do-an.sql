@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2024 at 10:07 AM
+-- Generation Time: Jan 16, 2024 at 02:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,6 +45,77 @@ INSERT INTO `blog` (`id`, `title`, `image`, `description`, `content`, `created_a
 (2, 'ck editor', '414048234_3574972999411272_2973742252230379325_n.jpg', 'ádasdasda', '<p><strong><img alt=\"\" src=\"http://127.0.0.1:8000/images/414048234_3574972999411272_2973742252230379325_n_1704518931.jpg\" style=\"height:2048px; width:1152px\" />sdasdsadasdas</strong></p>\r\n\r\n<p><em>đ&acirc;sdasd</em></p>\r\n\r\n<p><em><img alt=\"\" src=\"http://127.0.0.1:8000/images/z5041548876982_d575ef599155ed6a582c9e9e0e45514a_1704519148.jpg\" style=\"height:2560px; width:1182px\" /></em></p>', '2024-01-05 21:46:44', '2024-01-05 22:34:44'),
 (3, '123', '414048234_3574972999411272_2973742252230379325_n.jpg', '21312', '<p>123</p>', '2024-01-07 20:03:06', '2024-01-07 20:03:06'),
 (4, '321', 'z5041548876982_d575ef599155ed6a582c9e9e0e45514a.jpg', '21312', '<p>123213</p>', '2024-01-07 20:03:21', '2024-01-07 20:03:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brand`
+--
+
+CREATE TABLE `brand` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `brand`
+--
+
+INSERT INTO `brand` (`id`, `name`, `title`, `created_at`, `updated_at`) VALUES
+(2, 'gucci', 'hãng gucci', '2024-01-13 19:27:54', '2024-01-13 19:27:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `title`, `created_at`, `updated_at`) VALUES
+(2, 'Áo', 'áo nam nữ v..v', '2024-01-13 19:28:11', '2024-01-13 19:28:11'),
+(3, 'Quần', 'quần nam nữ v..v', '2024-01-13 19:38:38', '2024-01-13 20:00:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `id_blog` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `blog_father` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `comment`, `id_blog`, `id_user`, `blog_father`, `created_at`, `updated_at`) VALUES
+(1, 'Test father', 2, 15, 0, '2024-01-15 09:20:46', '2024-01-15 09:20:46'),
+(3, 'Test Son', 2, 15, 1, '2024-01-15 09:22:10', '2024-01-15 09:22:10'),
+(4, 'Test Son 2', 2, 15, 1, '2024-01-15 09:41:17', '2024-01-15 09:41:17'),
+(5, 'Test Son with id', 2, 15, 1, '2024-01-15 18:51:19', '2024-01-15 18:51:19'),
+(6, 'Test Father', 2, 15, 0, '2024-01-15 18:51:32', '2024-01-15 18:51:32'),
+(7, 'Test SOn with father', 2, 15, 6, '2024-01-15 19:04:23', '2024-01-15 19:04:23');
 
 -- --------------------------------------------------------
 
@@ -112,7 +183,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2024_01_06_053419_add_column', 6),
 (11, '2024_01_08_033049_default-level', 7),
 (12, '2024_01_08_081730_rate', 8),
-(13, '2024_01_10_083728_product', 9);
+(13, '2024_01_10_083728_product', 9),
+(14, '2024_01_13_180114_category', 10),
+(15, '2024_01_14_021735_brand', 11),
+(16, '2024_01_14_023017_uupdate_tabler', 12),
+(17, '2024_01_15_160822_comment', 13);
 
 -- --------------------------------------------------------
 
@@ -175,6 +250,9 @@ CREATE TABLE `product` (
   `name` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `price` double(8,2) NOT NULL,
+  `id_category` int(11) NOT NULL,
+  `sale` double(8,2) NOT NULL DEFAULT 0.00,
+  `id_brand` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -184,8 +262,9 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `image`, `price`, `id_user`, `created_at`, `updated_at`) VALUES
-(2, 'Test2', '414048234_3574972999411272_2973742252230379325_n.jpg', 123.00, 12, '2024-01-10 01:53:23', '2024-01-10 01:53:23');
+INSERT INTO `product` (`id`, `name`, `image`, `price`, `id_category`, `sale`, `id_brand`, `id_user`, `created_at`, `updated_at`) VALUES
+(4, 'test ao 1', 'download.jpg', 3000.00, 2, 10.00, 2, 15, '2024-01-14 18:47:23', '2024-01-14 18:47:23'),
+(5, 'test quần 1', 'shopping.webp', 5000.00, 3, 5.00, 2, 15, '2024-01-14 18:55:59', '2024-01-14 18:55:59');
 
 -- --------------------------------------------------------
 
@@ -201,6 +280,14 @@ CREATE TABLE `rate` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `rate`
+--
+
+INSERT INTO `rate` (`id`, `rate`, `id_blog`, `id_user`, `created_at`, `updated_at`) VALUES
+(14, 2, 2, 15, '2024-01-15 01:25:33', '2024-01-16 02:12:44'),
+(16, 3, 3, 15, '2024-01-15 20:57:34', '2024-01-15 20:57:37');
 
 -- --------------------------------------------------------
 
@@ -229,8 +316,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `address`, `id_country`, `avatar`, `remember_token`, `created_at`, `updated_at`, `level`) VALUES
-(10, 'Viet Nam', 'thanhlam@gmail.com', NULL, '$2y$12$NEqLPx9My9SyVrpnQppW0eOlhAODPNtPHLYDzTkI7a8669U5IXptG', NULL, NULL, 4, NULL, NULL, '2024-01-08 00:32:38', '2024-01-08 00:37:29', 1),
-(12, 'dev1xc', 'test@gmail.com', NULL, '$2y$12$3K9OGv4ReQlwLm6g96Q2RurjOr.ll.1dpoQuANg.RZaORO8j7XbsC', '123', '123', 3, 'chuan-bi-do-di-sinh.jpg', NULL, '2024-01-10 01:30:24', '2024-01-10 01:32:20', 0);
+(14, 'admin', 'admin@gmail.com', NULL, '$2y$12$4iy6crEO.GvMKjwM24jCQ.zNI7zobP8v7KYZZhRhjaF4paY8s62JC', NULL, NULL, 3, NULL, NULL, '2024-01-13 19:23:57', '2024-01-13 19:24:42', 1),
+(15, 'testuser1', 'testuser1@gmail.com', NULL, '$2y$12$7eXdVGgSgdym42.fLmhsBeDQ2nxsSG0DHcqzdkrtUs4xoyvPaCZ3O', NULL, NULL, NULL, NULL, NULL, '2024-01-13 19:28:56', '2024-01-13 19:28:56', 0);
 
 --
 -- Indexes for dumped tables
@@ -240,6 +327,24 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ph
 -- Indexes for table `blog`
 --
 ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `brand`
+--
+ALTER TABLE `brand`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -311,6 +416,24 @@ ALTER TABLE `blog`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `brand`
+--
+ALTER TABLE `brand`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
@@ -326,7 +449,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -338,19 +461,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `rate`
 --
 ALTER TABLE `rate`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
