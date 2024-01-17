@@ -40,7 +40,6 @@ class UserFrontendController extends Controller
             $user = User::find($userId);
             session()->put('nameSignIn', $user->name);
             session()->put('HasSignIn', $remember);
-            session()->put('level',0);
             return redirect('/home-page')->with('success','');
 
         }
