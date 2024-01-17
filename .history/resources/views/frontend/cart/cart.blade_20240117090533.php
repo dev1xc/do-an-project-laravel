@@ -32,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (empty($data))
+                    @if (!empty($data))
                         {{ 'Khong co san pham' }}
                     @else
                     @foreach ($data as $item)

@@ -32,9 +32,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (empty($data))
-                        {{ 'Khong co san pham' }}
-                    @else
                     @foreach ($data as $item)
                     <tr id="{{ $item['product_id'] }}">
                         <td class="cart_description">
@@ -64,7 +61,6 @@
                         </td>
                     </tr>
                     @endforeach
-                    @endif
                 </tbody>
             </table>
         </div>

@@ -164,7 +164,7 @@ class UserProductController extends Controller
             session()->put('cart', $cart);
         }
     }
-    public function CartCreate(Request $request) {
+    public function CartCreate() {
 
     }
 }

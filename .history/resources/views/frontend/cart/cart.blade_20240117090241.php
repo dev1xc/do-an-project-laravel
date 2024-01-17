@@ -10,6 +10,7 @@
                 @php
                     echo session('id_product');
                     echo session('qty_product');
+                    print_r(session('cart'));
                     $data = session()->get('cart');
                     $total = 0;
                     foreach ($data as $item) {
@@ -32,9 +33,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (empty($data))
-                        {{ 'Khong co san pham' }}
-                    @else
                     @foreach ($data as $item)
                     <tr id="{{ $item['product_id'] }}">
                         <td class="cart_description">
@@ -64,7 +62,6 @@
                         </td>
                     </tr>
                     @endforeach
-                    @endif
                 </tbody>
             </table>
         </div>
