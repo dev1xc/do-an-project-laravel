@@ -10,9 +10,7 @@ use App\Http\Controllers\RateController;
 use App\Http\Controllers\UserBlogController;
 use App\Http\Controllers\UserFrontendController;
 use App\Http\Controllers\UserProductController;
-use App\Mail\HelloMail;
 use App\Models\Product;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -86,7 +84,7 @@ Route::get('/get_cart_minus',[UserProductController::class,'minusCart']);
 Route::get('/get_cart_delete',[UserProductController::class,'deleteCart']);
 Route::get('/cart',[UserProductController::class,'CartPage']);
 
-// Route::get('/cart_total',[CartController::class,'sendMail']);
+Route::get('/cart_total',[CartController::class,'CartCreate']);
 Route::get('/cart_total',[CartController::class,'CartCreate']);
 Route::post('/cart_total',[CartController::class,'CartCreate']);
 

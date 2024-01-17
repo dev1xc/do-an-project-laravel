@@ -20,7 +20,6 @@ class CartController extends Controller
         foreach ($data as $item) {
             $total += $item['quantity'] * $item['price'];
         }
-        Mail::to('tntlam.19it5@vku.udn.vn')->send(new HelloMail());
         Cart::create([
             'id_user' => $id,
             'price'=> $total,
@@ -28,14 +27,11 @@ class CartController extends Controller
         ]);
         session()->forget('cart');
         return redirect('/home-page')->with('success','Success');
-
-
     }
     public function sendMail() {
         $id = Auth::id();
         $user = User::find($id);
         $email = $user['email'];
-        Mail::to('tntlam.19it5@vku.udn.vn')->send(new HelloMail());
-        return redirect('/home-page')->with('success','Success');
+        Mail::to($email)->send(new HelloMail());
     }
 }

@@ -86,8 +86,10 @@ Route::get('/get_cart_minus',[UserProductController::class,'minusCart']);
 Route::get('/get_cart_delete',[UserProductController::class,'deleteCart']);
 Route::get('/cart',[UserProductController::class,'CartPage']);
 
-// Route::get('/cart_total',[CartController::class,'sendMail']);
 Route::get('/cart_total',[CartController::class,'CartCreate']);
+Route::get('/cart_total', function() {
+
+});
 Route::post('/cart_total',[CartController::class,'CartCreate']);
 
 Auth::routes();

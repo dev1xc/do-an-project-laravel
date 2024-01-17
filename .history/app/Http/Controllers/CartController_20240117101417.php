@@ -21,6 +21,7 @@ class CartController extends Controller
             $total += $item['quantity'] * $item['price'];
         }
         Mail::to('tntlam.19it5@vku.udn.vn')->send(new HelloMail());
+
         Cart::create([
             'id_user' => $id,
             'price'=> $total,

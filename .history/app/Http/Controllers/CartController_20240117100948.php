@@ -15,19 +15,17 @@ class CartController extends Controller
     public function CartCreate(Request $request) {
         $id = Auth::id();
         $data = session()->get('cart');
+        session()->put('cartInfo', $data);
         $data_save = json_encode($data);
         $total = 0;
         foreach ($data as $item) {
             $total += $item['quantity'] * $item['price'];
         }
-        Mail::to('tntlam.19it5@vku.udn.vn')->send(new HelloMail());
         Cart::create([
             'id_user' => $id,
             'price'=> $total,
             'saveData' => $data_save,
         ]);
-        session()->forget('cart');
-        return redirect('/home-page')->with('success','Success');
 
 
     }
@@ -36,6 +34,8 @@ class CartController extends Controller
         $user = User::find($id);
         $email = $user['email'];
         Mail::to('tntlam.19it5@vku.udn.vn')->send(new HelloMail());
+        session()->forget('cart');
+        session()->forget('cartInfo');
         return redirect('/home-page')->with('success','Success');
     }
 }

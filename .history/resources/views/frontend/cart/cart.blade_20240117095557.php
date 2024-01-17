@@ -10,14 +10,12 @@
                 @php
                     $data = session()->get('cart');
                     if(empty($data)) {
-                        echo '<h1>Khong co san pham</h1>';
-                        $total = 0;
-                    }else {
+
+                    }
                     $total = 0;
                     foreach ($data as $item) {
                         $total += $item['quantity'] * $item['price'];
                     }
-                }
                 @endphp
             </ol>
         </div>
