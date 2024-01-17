@@ -92,11 +92,10 @@ class UserProductController extends Controller
         $data = [];
         $files = $request->delete;
         foreach ($files as $key => $value) {
-            $value = str_replace('http://127.0.0.1:8000/upload/product/15/hinh50_','', $value);
-            $files[$key] = $value;
+            $value = str_replace('','', $value);
         }
         $data = array_diff($image, $files);
-        $data = array_values($data);
+
         $temp['image'] = json_encode($data);
         Product::find($id)->update($temp);
         return redirect("/my-account/product")->with("success", "");

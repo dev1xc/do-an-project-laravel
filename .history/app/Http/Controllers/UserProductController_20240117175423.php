@@ -96,7 +96,7 @@ class UserProductController extends Controller
             $files[$key] = $value;
         }
         $data = array_diff($image, $files);
-        $data = array_values($data);
+
         $temp['image'] = json_encode($data);
         Product::find($id)->update($temp);
         return redirect("/my-account/product")->with("success", "");

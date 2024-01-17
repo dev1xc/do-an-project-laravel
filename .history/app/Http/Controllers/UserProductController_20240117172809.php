@@ -47,12 +47,12 @@ class UserProductController extends Controller
         if ($files = $request->file('image')) {
             foreach ($files as $file) {
                 $name = $file->getClientOriginalName();
-                $name_2 = "hinh50_" . $file->getClientOriginalName();
-                $name_3 = "hinh200_" . $file->getClientOriginalName();
+                $name_2 = "hinh50_".$file->getClientOriginalName();
+                $name_3 = "hinh200_".$file->getClientOriginalName();
 
-                $path = public_path('upload/product/' . $userId . '/' . $name);
-                $path2 = public_path('upload/product/' . $userId . '/' . $name_2);
-                $path3 = public_path('upload/product/' . $userId . '/' . $name_3);
+                $path = public_path('upload/product/'.$userId.'/'. $name);
+                $path2 = public_path('upload/product/'.$userId.'/'. $name_2);
+                $path3 = public_path('upload/product/'.$userId.'/' . $name_3);
 
                 Image::make($file->getRealPath())->save($path);
                 Image::make($file->getRealPath())->resize(50, 70)->save($path2);
@@ -66,7 +66,8 @@ class UserProductController extends Controller
                 //     1=>[$name_2],
                 //     2=>[$name_3],
                 // ];
-                $images[] = $name;
+                    $images[] = $name;
+
             }
         }
 
@@ -85,22 +86,12 @@ class UserProductController extends Controller
     }
     public function update($id, Request $request)
     {
-        $temp = Product::find($id);
-        $temp['image'] = json_decode($temp['image'], true);
-        $image = $temp['image'];
-        $temp = $request->all();
+        Product::find($id)->update($request->all());
         $data = [];
-        $files = $request->delete;
-        foreach ($files as $key => $value) {
-            $value = str_replace('http://127.0.0.1:8000/upload/product/15/hinh50_','', $value);
-            $files[$key] = $value;
+        if($file = $request->delete) {
+
         }
-        $data = array_diff($image, $files);
-        $data = array_values($data);
-        $temp['image'] = json_encode($data);
-        Product::find($id)->update($temp);
         return redirect("/my-account/product")->with("success", "");
-        // return view('test', compact("files"));
     }
     public function delete($id)
     {
@@ -111,7 +102,7 @@ class UserProductController extends Controller
     public function detail($id)
     {
         $data = Product::find($id);
-        $data['image'] = json_decode($data['image'], true);
+        $data['image'] = json_decode($data['image'],true);
         $brand = Brand::find($data->id_brand);
         return view("frontend.product.detail", compact("data", 'brand'));
     }

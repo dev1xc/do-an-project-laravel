@@ -72,7 +72,7 @@
                             @foreach ($product['image'] as $item)
                             <img src="{{ asset('/upload/product/' . $product->id_user . '/' . 'hinh50_' . $item) }}"
                             alt=""  class='hinh_50'/>
-                            <input type="checkbox" name="delete[]" value="{{ asset('/upload/product/' . $product->id_user . '/' . 'hinh50_' . $item) }}">
+                            <input type="checkbox" name="delete[]" value="{{ $temp }}">
                             @endforeach
                             <label class="col-md-12">Product Image</label>
                             <div class="col-md-12">

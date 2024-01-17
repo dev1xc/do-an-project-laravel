@@ -1,8 +1,5 @@
 @extends('frontend.layouts.main')
 @section('content')
-@php
-    $temp = 0;
-@endphp
 <section>
     <div class="container">
         <div class="row">
@@ -71,8 +68,8 @@
                             </div>
                             @foreach ($product['image'] as $item)
                             <img src="{{ asset('/upload/product/' . $product->id_user . '/' . 'hinh50_' . $item) }}"
-                            alt=""  class='hinh_50'/>
-                            <input type="checkbox" name="delete[]" value="{{ asset('/upload/product/' . $product->id_user . '/' . 'hinh50_' . $item) }}">
+                            alt=""  class='hinh_50'/> <br>
+                            <input type="checkbox">
                             @endforeach
                             <label class="col-md-12">Product Image</label>
                             <div class="col-md-12">
