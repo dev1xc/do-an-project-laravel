@@ -149,6 +149,5 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/delete-brand/{id}', [BrandController::class, 'delete']);
 });//Payment Cart
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('/admin_cart', [CartController::class, 'CartAdmin']);
-    Route::get('/detail_cart/{id}', [CartController::class, 'CartDetailAdmin']);
+    Route::get('/admin_cart', [BrandController::class, 'index']);
 });

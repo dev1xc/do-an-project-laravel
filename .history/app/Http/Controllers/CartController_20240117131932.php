@@ -39,13 +39,8 @@ class CartController extends Controller
         return redirect('/home-page')->with('success','Success');
     }
     public function CartAdmin() {
-        $data = Cart::paginate(5);
+        $data = Cart::all();
+$data_save = json_encode($data);
         return view('admin.cart.cart', compact('data'));
-    }
-    public function CartDetailAdmin($id) {
-        $data = Cart::find($id);
-        $data['saveData'] = json_decode($data['saveData'], true);
-        session()->put('hehe', $data['saveData']);
-        return view('admin.cart.detail', compact('data'));
     }
 }

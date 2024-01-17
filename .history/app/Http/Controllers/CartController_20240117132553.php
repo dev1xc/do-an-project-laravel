@@ -45,7 +45,6 @@ class CartController extends Controller
     public function CartDetailAdmin($id) {
         $data = Cart::find($id);
         $data['saveData'] = json_decode($data['saveData'], true);
-        session()->put('hehe', $data['saveData']);
         return view('admin.cart.detail', compact('data'));
     }
 }

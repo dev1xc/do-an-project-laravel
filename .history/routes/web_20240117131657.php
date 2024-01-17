@@ -149,6 +149,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/delete-brand/{id}', [BrandController::class, 'delete']);
 });//Payment Cart
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('/admin_cart', [CartController::class, 'CartAdmin']);
-    Route::get('/detail_cart/{id}', [CartController::class, 'CartDetailAdmin']);
+    Route::get('/admin_cart', [BrandController::class, 'index']);
+    Route::get('/add-brand', [BrandController::class, 'add']);
+    Route::post('/add-brand', [BrandController::class, 'create']);
+    Route::get('/edit-brand/{id}', [BrandController::class, 'edit']);
+    Route::post('/edit-brand/{id}', [BrandController::class, 'update']);
+    Route::get('/delete-brand/{id}', [BrandController::class, 'delete']);
 });
