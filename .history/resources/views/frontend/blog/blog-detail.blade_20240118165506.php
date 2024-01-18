@@ -213,13 +213,13 @@
                 <div class="response-area">
                     <h2>3 RESPONSES</h2>
                     @foreach ($data_cmt as $item)
-                    <ul class="media-list" id="{{ $item->id }}">
+                    <ul class="media-list">
                         <li class="media" id= {{ $item->id }}>
 
                             <a class="pull-left" href="#">
                                 <img class="media-object" src="images/blog/man-two.jpg" alt="">
                             </a>
-                            <div class="media-body" id="{{ $item->id }}">
+                            <div class="media-body">
                                 <ul class="sinlge-post-meta">
                                     <li><i class="fa fa-user"></i>{{ $item -> id_user }}</li>
                                     <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
@@ -231,7 +231,7 @@
 
                             </div>
                         </li>
-                        <div class="replay-box-son" style="display: none" id="{{ $item->id }}">
+                        <div class="replay-box-son" display="none" style="display: none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <h2>Leave a replay</h2>

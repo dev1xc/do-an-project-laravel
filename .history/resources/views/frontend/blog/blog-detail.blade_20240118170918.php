@@ -213,7 +213,7 @@
                 <div class="response-area">
                     <h2>3 RESPONSES</h2>
                     @foreach ($data_cmt as $item)
-                    <ul class="media-list" id="{{ $item->id }}">
+                    <ul class="media-list">
                         <li class="media" id= {{ $item->id }}>
 
                             <a class="pull-left" href="#">

@@ -20,7 +20,7 @@ class UserBlogController extends Controller
         $data = Blog::Where('id', $request -> id)->first();
         session()->put('idBlog', $request->id);
         $getAvg = RateBlog::where('id_blog',$id)->avg('rate');
-        $data_cmt = Comment::where('blog_father','=', 0)->where('id_blog','=',$id)->get();
+        $data_cmt = Comment::where('blog_father','=', 0)->where('id_blog','=','')->get();
         $data_cmt_son = Comment::where('blog_father','>', 0)->get();
         return view('frontend.blog.blog-detail', compact('data','data_cmt','data_cmt_son','getAvg'));
     }

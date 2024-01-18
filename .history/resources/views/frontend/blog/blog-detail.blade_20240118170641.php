@@ -213,7 +213,7 @@
                 <div class="response-area">
                     <h2>3 RESPONSES</h2>
                     @foreach ($data_cmt as $item)
-                    <ul class="media-list" id="{{ $item->id }}">
+                    <ul class="media-list">
                         <li class="media" id= {{ $item->id }}>
 
                             <a class="pull-left" href="#">
@@ -231,7 +231,7 @@
 
                             </div>
                         </li>
-                        <div class="replay-box-son" style="display: none" id="{{ $item->id }}">
+                        <div class="replay-box-son">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <h2>Leave a replay</h2>
