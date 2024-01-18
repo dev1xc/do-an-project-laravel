@@ -1,10 +1,5 @@
 @extends('frontend.layouts.main')
 @section('content')
-@php
-    foreach ($products as $product) {
-        $product['image'] = json_decode($product['image'],true);
-    }
-@endphp
 <section>
     <div class="container">
         <div class="row">
@@ -54,8 +49,7 @@
                                     <h4><a href="">{{ $product -> name }}</a></h4>
                                 </td>
                                 <td class="cart_price">
-                                    <img src="{{ asset('/upload/product/' . $product->id_user . '/' . $product->image[0]) }}"
-                                    alt="" height="50px" width="50px">
+                                    <img src="{{ asset('/upload/product/' . $product->id_user . '/' . $product['image'][0]) }}"/>
                                 </td>
                                 <td class="cart_total">
                                     <p class="cart_total_price">{{ $product -> price }}</p>

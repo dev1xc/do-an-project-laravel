@@ -31,6 +31,19 @@ class UserProductController extends Controller
         $userId = Auth::id();
         $data = $request->except(['_token'], ['image']);
         $data['id_user'] = $userId;
+        $imagesStore = [];
+        // $file = $request->image;
+        // if(!empty($file)){
+        //     $data['image'] = $file->getClientOriginalName();
+        // }
+        // if(Product::create( $data )) {
+        //     if(!empty($file)){
+        //         $file->move('upload/product/image', $file->getClientOriginalName());
+        //     }
+        //     return redirect("/my-account/product")->with("success","Success");
+        // }else {
+        //     return back()->with("error","Error");
+        // }
         $images = array();
         if ($files = $request->file('image')) {
             foreach ($files as $file) {
@@ -65,30 +78,23 @@ class UserProductController extends Controller
     }
     public function update($id, Request $request)
     {
-        $userId = Auth::id();
         $temp = Product::find($id);
         $temp['image'] = json_decode($temp['image'], true);
         $image = $temp['image'];
         $temp = $request->all();
         $data = [];
         $files = $request->delete;
-        if(!empty($files)) {
-            foreach ($files as $key => $value) {
-                $str = 'http://127.0.0.1:8000/upload/product/'.$userId.'/hinh50_';
-                $value = str_replace($str,'', $value);
-                $files[$key] = $value;
-            }
-            $data = array_diff($image, $files);
-            $data = array_values($data);
-        }else {
-            $data = array_values($image);
+        foreach ($files as $key => $value) {
+            $value = str_replace('http://127.0.0.1:8000/upload/product/15/hinh50_','', $value);
+            $files[$key] = $value;
         }
-
+        $data = array_diff($image, $files);
+        $data = array_values($data);
         // $temp['image'] = json_encode($data);
         //***************** */
         $images = array();
-        if ($files2 = $request->file('image')) {
-            foreach ($files2 as $file) {
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
                 $name = $file->getClientOriginalName();
                 $name_2 = "hinh50_" . $file->getClientOriginalName();
                 $name_3 = "hinh200_" . $file->getClientOriginalName();
@@ -104,7 +110,7 @@ class UserProductController extends Controller
                 $images[] = $name;
             }
         }
-        $temp['image'] = array_merge(array_values($images), $data);
+
         // $data['image'] = json_encode($images);
         //***************** */
         Product::find($id)->update($temp);

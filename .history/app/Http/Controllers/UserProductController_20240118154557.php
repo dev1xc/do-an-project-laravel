@@ -74,14 +74,12 @@ class UserProductController extends Controller
         $files = $request->delete;
         if(!empty($files)) {
             foreach ($files as $key => $value) {
-                $str = 'http://127.0.0.1:8000/upload/product/'.$userId.'/hinh50_';
-                $value = str_replace($str,'', $value);
+                $str = 'http://127.0.0.1:8000/upload/product/.$userId./hinh50_';
+                $value = str_replace('http://127.0.0.1:8000/upload/product/.'$userId'./hinh50_','', $value);
                 $files[$key] = $value;
             }
             $data = array_diff($image, $files);
             $data = array_values($data);
-        }else {
-            $data = array_values($image);
         }
 
         // $temp['image'] = json_encode($data);

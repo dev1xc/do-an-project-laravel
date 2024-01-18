@@ -81,7 +81,7 @@ class UserProductController extends Controller
             $data = array_diff($image, $files);
             $data = array_values($data);
         }else {
-            $data = array_values($image);
+            $data = $temp['imgae'];
         }
 
         // $temp['image'] = json_encode($data);
