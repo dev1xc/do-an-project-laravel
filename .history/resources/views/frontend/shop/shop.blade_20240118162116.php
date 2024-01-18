@@ -2,8 +2,8 @@
 @include('frontend.shop.jquery')
 @section('content')
 @php
-    foreach ($data as $item) {
-        $item['image'] = json_decode($item['image'], true);
+    foreach ($data as $product) {
+        $product['image'] = json_decode($product['image'], true);
     }
 @endphp
     <section>
@@ -183,7 +183,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products" id="{{ $item -> id }}">
                                 <div class="productinfo text-center">
-                                    <img src="{{ asset('/upload/product/' . $item->id_user . '/' . $item->image[0]) }}"/>
+                                    <img src="{{ asset('/upload/product/' . $product->id_user . '/' . $product->image[1]) }}"/>
                                     <h2>{{ $item -> name }}</h2>
                                     <p>{{ $item -> price }}</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i

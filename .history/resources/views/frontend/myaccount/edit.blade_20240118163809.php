@@ -60,6 +60,7 @@
                                     >{{ $c -> name }}</option>
                                 @endforeach
                             </select>
+
                             </div>
                             <label class="col-md-12">Sale</label>
                             <div class="col-md-12">

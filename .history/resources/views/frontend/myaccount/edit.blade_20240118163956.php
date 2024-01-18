@@ -51,15 +51,16 @@
                             </div>
                             <label class="col-md-12">Product Brand</label>
                             <div class="col-md-12">
-                                <select class="form-control form-control-line" name="id_brand">
-                                    @foreach ($data_brand as $c)
+                            <select class="form-control form-control-line" name="id_brand">
+                                    @foreach ($data_brand as $b)
                                     <option value="{{ $c -> id }}"
-                                        @if (($c -> id )== ($product -> id_brand)))
+                                        @if (($b -> id )== ($product -> id_brand)))
                                         selected="selected"
                                     @endif
-                                    >{{ $c -> name }}</option>
+                                    >{{ $b -> name }}</option>
                                 @endforeach
                             </select>
+                        </select>
                             </div>
                             <label class="col-md-12">Sale</label>
                             <div class="col-md-12">

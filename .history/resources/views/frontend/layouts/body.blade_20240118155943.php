@@ -225,7 +225,8 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products" id="{{ $item->id }}">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('/upload/product/' . $product->id_user . '/' . $product->image[0]) }}"/>
+                                        <img src="{{ asset('/upload/product/' . $product->id_user . '/' . 'hinh50_' . $item) }}"
+                                            alt="" class='hinh_50' />
                                         <h2>{{ $item->name }}</h2>
                                         <p>{{ $item->price }}</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i

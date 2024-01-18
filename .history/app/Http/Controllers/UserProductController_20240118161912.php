@@ -66,9 +66,9 @@ class UserProductController extends Controller
     public function update($id, Request $request)
     {
         $userId = Auth::id();
-        $tempGet = Product::find($id);
-        $tempGet['image'] = json_decode($tempGet['image'], true);
-        $image = $tempGet['image'];
+        $temp = Product::find($id);
+        $temp['image'] = json_decode($temp['image'], true);
+        $image = $temp['image'];
         $temp = $request->all();
         $data = [];
         $files = $request->delete;
@@ -136,7 +136,7 @@ class UserProductController extends Controller
         $value = $request->except('_token');
         $price_temp = $value['price'];
         $price = explode('-', $price_temp);
-        $data = Product::where('name', 'like', '%' . $value['name'] . '%')->where('id_category', '=', $value['category'])->where('id_brand', '=', $value['brand'])->whereBetween('price', [$price[0], $price[1]])->paginate(9);
+        $data = Product::where('name', 'like', '%' . $value['name'] . '%')->where('id_category', '=', $value['category'])->where('id_brand', '=', $value['brand'])->whereBetween('price', [$price[0], $price[1]])->first();
         return view('frontend.shop.search', compact('data'));
     }
     public function slCart(Request $request)

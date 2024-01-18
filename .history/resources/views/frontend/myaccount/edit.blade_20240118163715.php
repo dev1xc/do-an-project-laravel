@@ -51,7 +51,7 @@
                             </div>
                             <label class="col-md-12">Product Brand</label>
                             <div class="col-md-12">
-                                <select class="form-control form-control-line" name="id_brand">
+                                <select class="form-control form-control-line" name="id_category">
                                     @foreach ($data_brand as $c)
                                     <option value="{{ $c -> id }}"
                                         @if (($c -> id )== ($product -> id_brand)))
@@ -59,6 +59,7 @@
                                     @endif
                                     >{{ $c -> name }}</option>
                                 @endforeach
+                            </select>
                             </select>
                             </div>
                             <label class="col-md-12">Sale</label>

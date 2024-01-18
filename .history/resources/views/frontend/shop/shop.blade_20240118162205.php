@@ -2,8 +2,8 @@
 @include('frontend.shop.jquery')
 @section('content')
 @php
-    foreach ($data as $item) {
-        $item['image'] = json_decode($item['image'], true);
+    foreach ($data as $product) {
+        $product['image'] = json_decode($product['image'], true);
     }
 @endphp
     <section>

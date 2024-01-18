@@ -3,7 +3,7 @@
 @section('content')
 @php
     foreach ($data as $item) {
-        $item['image'] = json_decode($item['image'], true);
+        $item['image'] = json_decode($product['image'], true);
     }
 @endphp
     <section>

@@ -1,8 +1,8 @@
-@php
+{{-- @php
     foreach ($data as $product) {
         $product['image'] = json_decode($product['image'], true);
     }
-@endphp
+@endphp --}}
 <section id="slider"><!--slider-->
     <div class="container">
         <div class="row">

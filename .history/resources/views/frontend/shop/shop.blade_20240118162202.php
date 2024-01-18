@@ -1,11 +1,11 @@
 @extends('frontend.layouts.main')
 @include('frontend.shop.jquery')
 @section('content')
-@php
-    foreach ($data as $item) {
-        $item['image'] = json_decode($item['image'], true);
+{{-- @php
+    foreach ($data as $product) {
+        $product['image'] = json_decode($product['image'], true);
     }
-@endphp
+@endphp --}}
     <section>
         <div class="container">
             <div class="row">

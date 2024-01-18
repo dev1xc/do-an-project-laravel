@@ -1,6 +1,6 @@
 @php
     foreach ($data as $product) {
-        $product['image'] = json_decode($product['image'], true);
+        $product['image'] = json_decode($product['image'],true);
     }
 @endphp
 <section id="slider"><!--slider-->
@@ -194,18 +194,16 @@
                                 <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
                                 <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
                                 <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-                                <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a>
-                                </li>
+                                <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
                             </ul>
                         </div>
                     </div><!--/brands_products-->
-                    6
+6
                     <div class="price-range"><!--price-range-->
                         <h2>Price Range</h2>
                         <div class="well text-center">
-                            <input type="text" class="span2" value="" data-slider-min="0"
-                                data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]"
-                                id="sl2"><br />
+                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600"
+                                data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
                             <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
                         </div>
                     </div><!--/price-range-->
@@ -221,37 +219,36 @@
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Features Items</h2>
                     @foreach ($data as $item)
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products" id="{{ $item->id }}">
-                                    <div class="productinfo text-center">
-                                        <img src="{{ asset('/upload/product/' . $product->id_user . '/' . $product->image[0]) }}"/>
-                                        <h2>{{ $item->name }}</h2>
-                                        <p>{{ $item->price }}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i
-                                                class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>{{ $item->name }}</h2>
-                                            <p>{{ $item->price }}</p>
-                                            <a class="btn btn-default add-to-cart" id="{{ $item->id }}"><i
-                                                    class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            <a href="/detail-product/{{ $item->id }}"
-                                                class="btn btn-default add-to-cart"><i
-                                                    class="fa fa-shopping-cart"></i>Detail</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                    </ul>
+                    <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products" id="{{ $item -> id }}">
+                            <div class="productinfo text-center">
+                                <img src="{{ asset('/upload/product/' . $product->id_user . '/' . 'hinh50_' . $item) }}"
+                            alt=""  class='hinh_50'/>
+                                <h2>{{ $item -> name }}</h2>
+                                <p>{{ $item -> price }}</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i
+                                        class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+                            <div class="product-overlay">
+                                <div class="overlay-content">
+                                    <h2>{{ $item -> name }}</h2>
+                                    <p>{{ $item -> price }}</p>
+                                    <a class="btn btn-default add-to-cart" id="{{ $item -> id }}"><i
+                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href="/detail-product/{{ $item -> id }}" class="btn btn-default add-to-cart"><i
+                                            class="fa fa-shopping-cart"></i>Detail</a>
                                 </div>
                             </div>
                         </div>
+                        <div class="choose">
+                            <ul class="nav nav-pills nav-justified">
+                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
                     @endforeach
                 </div><!--features_items-->
 
@@ -657,7 +654,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                        <a class="left recommended-item-control" href="#recommended-item-carousel"
+                            data-slide="prev">
                             <i class="fa fa-angle-left"></i>
                         </a>
                         <a class="right recommended-item-control" href="#recommended-item-carousel"

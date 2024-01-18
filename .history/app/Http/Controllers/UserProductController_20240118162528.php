@@ -67,8 +67,8 @@ class UserProductController extends Controller
     {
         $userId = Auth::id();
         $tempGet = Product::find($id);
-        $tempGet['image'] = json_decode($tempGet['image'], true);
-        $image = $tempGet['image'];
+        $temp['image'] = json_decode($temp['image'], true);
+        $image = $temp['image'];
         $temp = $request->all();
         $data = [];
         $files = $request->delete;
