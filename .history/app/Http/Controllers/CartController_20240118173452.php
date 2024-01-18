@@ -20,8 +20,7 @@ class CartController extends Controller
         foreach ($data as $item) {
             $total += $item['quantity'] * $item['price'];
         }
-        $getEmail = User::find($id)->email;
-        Mail::to($getEmail)->send(new HelloMail());
+        Mail::to()->send(new HelloMail());
         Cart::create([
             'id_user' => $id,
             'price'=> $total,

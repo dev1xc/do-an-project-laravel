@@ -23,7 +23,6 @@
 				$('p.cart_total_price').each(function (index) {
 					loopTotal += Number($(this).text())
 				})
-                let allTotal = parseFloat(loopTotal)
                 $('div.total_area').find('li:eq(3) span').text(allTotal)
             $.ajax({
                 type: "GET",
@@ -62,12 +61,6 @@
 					let cartCountObj = JSON.stringify(slCart)
 					localStorage.setItem('demSLCart', cartCountObj)
 				}
-                let loopTotal = 0
-				$('p.cart_total_price').each(function (index) {
-					loopTotal += Number($(this).text())
-				})
-                let allTotal = parseFloat(loopTotal)
-                $('div.total_area').find('li:eq(3) span').text(allTotal)
             $.ajax({
                 type: "GET",
                 url: "/get_cart_minus",
@@ -95,12 +88,6 @@
 					let cartCountObj = JSON.stringify(slCart)
 					localStorage.setItem('demSLCart', cartCountObj)
 				}
-                let loopTotal = 0
-				$('p.cart_total_price').each(function (index) {
-					loopTotal += Number($(this).text())
-				})
-                let allTotal = parseFloat(loopTotal)
-                $('div.total_area').find('li:eq(3) span').text(allTotal)
                 $.ajax({
                 type: "GET",
                 url: "/get_cart_delete",

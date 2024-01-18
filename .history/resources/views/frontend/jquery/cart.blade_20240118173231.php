@@ -95,12 +95,7 @@
 					let cartCountObj = JSON.stringify(slCart)
 					localStorage.setItem('demSLCart', cartCountObj)
 				}
-                let loopTotal = 0
-				$('p.cart_total_price').each(function (index) {
-					loopTotal += Number($(this).text())
-				})
-                let allTotal = parseFloat(loopTotal)
-                $('div.total_area').find('li:eq(3) span').text(allTotal)
+                http://127.0.0.1:8000/shop
                 $.ajax({
                 type: "GET",
                 url: "/get_cart_delete",

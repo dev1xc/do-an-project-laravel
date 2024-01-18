@@ -31,7 +31,7 @@ class UserFrontendController extends Controller
         $login = [
             'email' => $request -> email,
             'password' => $request -> password,
-            // 'level' => 0
+            'level' => 0
         ];
         $remember = false;
         if(Auth::attempt($login,$remember)){
