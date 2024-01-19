@@ -42,6 +42,5 @@ class UserBlogController extends Controller
     }
     public function nextblog($id) {
         $next = Blog::where('id', '>', $id)->min('id');
-        return redirect('blog-detail/'.$next)->with('success','success');
     }
 }

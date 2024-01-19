@@ -1,6 +1,10 @@
 @extends('frontend.layouts.main')
 
 @section('content')
+@php
+    $id = $data -> id;
+    $previous = User::where('id', '<', $user->id)->max('id');
+@endphp
 <section>
     <div class="container">
         <div class="row">
@@ -169,7 +173,7 @@
                         <div class="pager-area">
                             <ul class="pager pull-right">
                                 <li><a href="/blog-detail-last/{{($data -> id)}}">Prev</a></li>
-                                <li><a href="/blog-detail-next/{{($data -> id)}}">Next</a></li>
+                                <li><a href="/blog-detail/{{($data -> id)}}">Next</a></li>
                             </ul>
                         </div>
                     </div>

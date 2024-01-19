@@ -37,11 +37,9 @@ class UserBlogController extends Controller
     }
     public function lastblog($id) {
         $previous = Blog::where('id', '<', $id)->max('id');
-        return redirect('blog-detail/'.$previous)->with('success','success');
 
     }
     public function nextblog($id) {
-        $next = Blog::where('id', '>', $id)->min('id');
-        return redirect('blog-detail/'.$next)->with('success','success');
+        $previous = Blog::where('id', '<', $id)->max('id');
     }
 }

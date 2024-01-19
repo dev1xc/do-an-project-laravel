@@ -4,8 +4,7 @@
     $temp = 0;
 @endphp
 @if ($errors->has('max'))
-    <span class="error" style="color: red">{{ $errors->first('max') }}</span>
-    <h1></h1>
+    <span class="error">{{ $errors->first('max') }}</span>
 @endif
 <section>
     <div class="container">

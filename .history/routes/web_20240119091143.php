@@ -57,8 +57,6 @@ Route::get('/list-blog', [UserBlogController::class, 'index']);
 Route::get('/blog-detail/{id}', [UserBlogController::class, 'detailblog']);
 Route::post('/blog-detail/{id}', [UserBlogController::class, 'comment']);
 Route::get('/get-rate', [UserBlogController::class, 'detailblog']);
-Route::get('blog-detail-last/{id}', [UserBlogController::class, 'lastblog']);
-Route::get('/blog-detail-next/{id}', [UserBlogController::class, 'nextblog']);
 
 //myaccount user
 Route::get('/my-account', [UserFrontendController::class, 'myaccount']);

@@ -1,6 +1,9 @@
 @extends('frontend.layouts.main')
 
 @section('content')
+@php
+
+@endphp
 <section>
     <div class="container">
         <div class="row">
@@ -168,8 +171,8 @@
                             {!! $data->content !!} </p> <br>
                         <div class="pager-area">
                             <ul class="pager pull-right">
-                                <li><a href="/blog-detail-last/{{($data -> id)}}">Prev</a></li>
-                                <li><a href="/blog-detail-next/{{($data -> id)}}">Next</a></li>
+                                <li><a href="/blog-detail/{{ ($data -> id) - 1 }}">Prev</a></li>
+                                <li><a href="/blog-detail/{{ ($data -> id) + 1 }}">Next</a></li>
                             </ul>
                         </div>
                     </div>

@@ -2,10 +2,10 @@
 @section('content')
 @php
     $temp = 0;
+    print_r($errors);
 @endphp
-@if ($errors->has('max'))
-    <span class="error" style="color: red">{{ $errors->first('max') }}</span>
-    <h1></h1>
+@if (!empty($error))
+    <span class="error">{{ $error }}</span>
 @endif
 <section>
     <div class="container">

@@ -5,7 +5,6 @@
 @endphp
 @if ($errors->has('max'))
     <span class="error" style="color: red">{{ $errors->first('max') }}</span>
-    <h1></h1>
 @endif
 <section>
     <div class="container">

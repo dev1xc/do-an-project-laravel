@@ -1,6 +1,10 @@
 @extends('frontend.layouts.main')
 
 @section('content')
+@php
+    $id = $data -> id;
+    $previous = User::where('id', '<', $user->id)->max('id');
+@endphp
 <section>
     <div class="container">
         <div class="row">
