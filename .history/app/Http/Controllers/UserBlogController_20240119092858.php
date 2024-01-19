@@ -25,12 +25,10 @@ class UserBlogController extends Controller
         $data_cmt_son = Comment::where('blog_father','>', 0)->get();
         $id_get_user = [];
         foreach ($data_cmt_son as $value) {
-            $id_get_user[] = $value['id_user'];
+            $id_get_user = $value;
         };
-        $id_get_user = array_unique($id_get_user);
-        $getData[] = User::whereIn('id', $id_get_user)->get();
         // $data_people= User::whereIn('id',$data_cmt_son['id_user'])->get();
-        return view('frontend.blog.blog-detail', compact('data','data_cmt','data_cmt_son','getAvg','getData'));
+        return view('frontend.blog.blog-detail', compact('data','data_cmt','data_cmt_son','getAvg','data_people'));
     }
     public function comment($id, Request $request) {
         $id_user = Auth::id();

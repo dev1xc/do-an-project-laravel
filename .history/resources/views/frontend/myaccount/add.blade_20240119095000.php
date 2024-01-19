@@ -51,15 +51,16 @@
                                 </select>
                             </div>
                             <br><br>
-                            <label class="col-md-12">Sale</label>
                             <div class="col-md-12">
-                                <select id="check_sale">
-                                        <option value="1">Sale</option>
-                                        <option value="0" selected>No Sale</option>
+                                <select name="is_sale">
+                                    @foreach ($data_brand as $brand)
+                                        <option value="{{ $brand -> id }}">{{ $brand ->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-12" style="display: none" id="is_sale">
-                                <input type="text" class="form-control form-control-line" name="sale" value="0">
+                            <label class="col-md-12">Sale</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control form-control-line" name="sale">
                             </div>
                             <label class="col-md-12">Price</label>
                             <div class="col-md-12">

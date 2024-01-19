@@ -28,7 +28,7 @@ class UserBlogController extends Controller
             $id_get_user[] = $value['id_user'];
         };
         $id_get_user = array_unique($id_get_user);
-        $getData[] = User::whereIn('id', $id_get_user)->get();
+        $getData[] = User::whereIn('id', [15,16])->get();
         // $data_people= User::whereIn('id',$data_cmt_son['id_user'])->get();
         return view('frontend.blog.blog-detail', compact('data','data_cmt','data_cmt_son','getAvg','getData'));
     }

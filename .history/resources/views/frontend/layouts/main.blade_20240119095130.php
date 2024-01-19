@@ -38,7 +38,7 @@
    @include('frontend.jquery.cart')
    @include('frontend.jquery.detail')
    @include('frontend.jquery.order')
-   @include('frontend.jquery.add')
+   @include('frontend.jquery.order')
 
 </head>
 

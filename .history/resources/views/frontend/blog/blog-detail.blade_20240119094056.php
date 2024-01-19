@@ -1,14 +1,11 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-{{-- @php
+@php
     echo '<pre>';
-        print_r($getData);
+        print_r($$data_cmt );
         echo '</pre>';
-        // foreach ($getData as $key => $value) {
-        //     echo $value->id;
-        // }
-@endphp --}}
+@endphp
 <section>
     <div class="container">
         <div class="row">

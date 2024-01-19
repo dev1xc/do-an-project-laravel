@@ -1,14 +1,6 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-{{-- @php
-    echo '<pre>';
-        print_r($getData);
-        echo '</pre>';
-        // foreach ($getData as $key => $value) {
-        //     echo $value->id;
-        // }
-@endphp --}}
 <section>
     <div class="container">
         <div class="row">
@@ -229,13 +221,7 @@
                             </a>
                             <div class="media-body" id="{{ $item->id }}">
                                 <ul class="sinlge-post-meta">
-                                    {{-- @foreach ($getData as $data)
-                                        @if ($item -> id_user == $data->id)
-                                            @php
-                                                echo  "<li><i class='fa fa-user'></i>{{ $data->name }}</li>"
-                                            @endphp
-                                        @endif
-                                    @endforeach --}}
+                                    <li><i class="fa fa-user"></i>{{ $item -> id_user }}</li>
                                     <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                     <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                 </ul>
@@ -265,7 +251,9 @@
                         </div><!--/Repaly Box-->
 
                         @foreach ($data_cmt_son as $son)
+                        @foreach($data_people as $pp)
                             @if($item->id == $son->blog_father)
+
                             <li class="media second-media">
                                 <a class="pull-left" href="#">
                                     <img class="media-object" src="images/blog/man-three.jpg" alt="">
@@ -280,6 +268,7 @@
                                 </div>
                             </li>
                             @endif
+                        @endforeach
                         @endforeach
 
 

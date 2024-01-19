@@ -53,13 +53,13 @@
                             <br><br>
                             <label class="col-md-12">Sale</label>
                             <div class="col-md-12">
-                                <select id="check_sale">
+                                <select name="is_sale">
                                         <option value="1">Sale</option>
                                         <option value="0" selected>No Sale</option>
                                 </select>
                             </div>
-                            <div class="col-md-12" style="display: none" id="is_sale">
-                                <input type="text" class="form-control form-control-line" name="sale" value="0">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control form-control-line" name="sale">
                             </div>
                             <label class="col-md-12">Price</label>
                             <div class="col-md-12">
