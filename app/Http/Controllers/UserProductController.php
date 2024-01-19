@@ -41,7 +41,9 @@ class UserProductController extends Controller
                 $path = public_path('upload/product/' . $userId . '/' . $name);
                 $path2 = public_path('upload/product/' . $userId . '/' . $name_2);
                 $path3 = public_path('upload/product/' . $userId . '/' . $name_3);
-
+                // if (!file_exists($path)) {
+                //     mkdir($path, 666, true);
+                // }
                 Image::make($file->getRealPath())->save($path);
                 Image::make($file->getRealPath())->resize(50, 70)->save($path2);
                 Image::make($file->getRealPath())->resize(200, 300)->save($path3);
@@ -72,6 +74,7 @@ class UserProductController extends Controller
         $temp = $request->all();
         $data = [];
         $files = $request->delete;
+        $errors = [];
         if(!empty($files)) {
             foreach ($files as $key => $value) {
                 $str = 'http://127.0.0.1:8000/upload/product/'.$userId.'/hinh50_';
@@ -105,11 +108,26 @@ class UserProductController extends Controller
             }
         }
         $temp['image'] = array_merge(array_values($images), $data);
+        if(count($temp['image'])>3) {
+            $err = 'Khong the them qua 3 hinh cho san pham';
+            $errors = [
+                'max' => $err,
+            ];
+            return redirect()->back()->withErrors($errors);
+        }if(count($temp['image'])<1) {
+            $err = 'Phai them it nhat 1 hinh cho san pham';
+            $errors = [
+                'max' => $err,
+            ];
+            return redirect()->back()->withErrors($errors);
+        }
+        else {
         // $data['image'] = json_encode($images);
         //***************** */
         Product::find($id)->update($temp);
         return redirect("/my-account/product")->with("success", "");
         // return view('test', compact("files"));
+        }
     }
     public function delete($id)
     {

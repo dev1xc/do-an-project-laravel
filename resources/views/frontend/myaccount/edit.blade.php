@@ -2,7 +2,11 @@
 @section('content')
 @php
     $temp = 0;
+    print_r($errors);
 @endphp
+@if ($errors->has('max'))
+    <span class="error">{{ $errors->first('max') }}</span>
+@endif
 <section>
     <div class="container">
         <div class="row">
