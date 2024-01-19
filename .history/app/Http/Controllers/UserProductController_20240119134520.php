@@ -51,25 +51,24 @@ class UserProductController extends Controller
                 $images[] = $name;
             }
         }
-        if(count($images)>3) {
+        if(count($temp['image'])>3) {
             $err = 'Khong the them qua 3 hinh cho san pham';
             $errors = [
                 'max' => $err,
             ];
             return redirect()->back()->withErrors($errors);
-        }if(count($images)<1) {
+        }if(count($temp['image'])<1) {
             $err = 'Phai them it nhat 1 hinh cho san pham';
             $errors = [
                 'max' => $err,
             ];
             return redirect()->back()->withErrors($errors);
-        }else {
+        }
 
         $data['image'] = json_encode($images);
 
         Product::create($data);
         return redirect("/my-account/product")->with("success", "Success");
-        }
     }
     public function edit($id)
     {

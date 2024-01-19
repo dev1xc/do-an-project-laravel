@@ -63,13 +63,12 @@ class UserProductController extends Controller
                 'max' => $err,
             ];
             return redirect()->back()->withErrors($errors);
-        }else {
+        }
 
         $data['image'] = json_encode($images);
 
         Product::create($data);
         return redirect("/my-account/product")->with("success", "Success");
-        }
     }
     public function edit($id)
     {
