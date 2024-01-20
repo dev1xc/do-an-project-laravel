@@ -258,7 +258,6 @@ class UserProductController extends Controller
         $id = $request->get('id');
         $qty = $request->get('quantity');
         $data = Product::find($id);
-        $images = json_decode($data->image, true);
         $cart = session()->get('cart', []);
 
         // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa

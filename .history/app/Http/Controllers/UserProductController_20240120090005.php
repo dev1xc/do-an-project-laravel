@@ -202,7 +202,7 @@ class UserProductController extends Controller
         $id = $request->get('id');
         $qty = $request->get('qty');
         $data = Product::find($id);
-        $images = json_decode($data->image, true);
+        $data['image'] = json_decode($data['image'], true);
         $cart = session()->get('cart', []);
         // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
         if (isset($cart[$id])) {
@@ -215,13 +215,14 @@ class UserProductController extends Controller
                 'product_id' => $id,
                 'quantity' => 1,
                 'price' => $data['price'],
-                'image' => '/upload/product/' . $data->id_user . '/' . $images[0],
+                'image' => "'/upload/product/' . $data->id_user . '/' . $data->image[0]'",
                 'name' => $data['name'],
             ];
         }
 
         // Lưu giỏ hàng vào session
         session()->put('cart', $cart);
+        return redirect('/cart',compact('data['image']'));
     }
 
 
@@ -234,7 +235,6 @@ class UserProductController extends Controller
         $id = $request->get('id');
         $qty = $request->get('quantity');
         $data = Product::find($id);
-        $images = json_decode($data->image, true);
         $cart = session()->get('cart', []);
 
         // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
@@ -247,7 +247,7 @@ class UserProductController extends Controller
                 'product_id' => $id,
                 'quantity' => 1,
                 'price' => $data['price'],
-                'image' => '/upload/product/' . $data->id_user . '/' . $images[0],
+                'image' => $data['image'],
                 'name' => $data['name'],
             ];
         }
@@ -258,7 +258,6 @@ class UserProductController extends Controller
         $id = $request->get('id');
         $qty = $request->get('quantity');
         $data = Product::find($id);
-        $images = json_decode($data->image, true);
         $cart = session()->get('cart', []);
 
         // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
@@ -277,7 +276,7 @@ class UserProductController extends Controller
                 'product_id' => $id,
                 'quantity' => 1,
                 'price' => $data['price'],
-                'image' => '/upload/product/' . $data->id_user . '/' . $images[0],
+                'image' => $data['image'],
                 'name' => $data['name'],
             ];
         }

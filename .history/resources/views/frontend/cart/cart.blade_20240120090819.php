@@ -1,5 +1,10 @@
 @extends('frontend.layouts.main')
 @section('content')
+@php
+    echo '<pre>';
+        print_r(session()->get('cart'));
+    echo '</pre>';
+@endphp
 <section id="cart_items">
     <div class="container">
         <div class="breadcrumbs">

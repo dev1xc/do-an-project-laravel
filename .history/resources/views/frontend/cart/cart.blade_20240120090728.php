@@ -1,5 +1,10 @@
 @extends('frontend.layouts.main')
 @section('content')
+@php
+    echo '<pre>';
+        print_r(session()->get('cart'));
+    echo '</pre>';
+@endphp
 <section id="cart_items">
     <div class="container">
         <div class="breadcrumbs">
@@ -43,7 +48,7 @@
                             <h4><a href="">{{ $item['product_id'] }}</a></h4>
                         </td>
                         <td class="cart_product">
-                            <a href=""><img src="{{ asset($item['image'])}}" alt="" style="height: 100px"/></a>
+                            <a href=""><img src="{{ asset($item->)}}" alt="" style="height: 100px"/></a>
                         </td>
                         <td class="cart_description">
                             <h4><a href="">{{ $item['name'] }}</a></h4>
