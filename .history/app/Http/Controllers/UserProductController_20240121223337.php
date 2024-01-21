@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Image;
 
 class UserProductController extends Controller
@@ -303,11 +302,18 @@ class UserProductController extends Controller
     }
     public function getPriceRange(Request $request)
     {
-        $min = $request->input('min');
-        $max = $request->input('max');
-        $data = Product::whereBetween('price', [$min, $max])->paginate(9);
-        //  return response()->json($result);
-        return view('frontend.shop.search', compact('data'));
-        // return redirect('/get-price-range')->with(compact('data'));
+        $min = $request->get('min');
+        $max = $request->get('max');
+        session()->put('priceRange', [$min, $max]);
+        $data = Product::whereBetween('price', [$min, $max])->get();
+        return response()->json($data);
+    }
+    public function yourMethod()
+    {
+        $data = array(
+            'message' => 'This is the message',
+            'value' => 'This is the value'
+        );
+        return response()->json($data);
     }
 }

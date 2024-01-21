@@ -163,7 +163,6 @@
 <script src="{{ asset('frontend/js/jquery.js') }}"></script>
 <script src="{{ asset('fronend/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.scrollUp.min.js') }}"></script>
-@include('frontend.jquery.range')
 {{-- <script src="{{ asset('frontend/js/price-range.js') }}"></script> --}}
 <script src="{{ asset('frontend/js/jquery.prettyPhoto.js') }}"></script>
 <script src="{{ asset('frontend/js/main.js') }}"></script>

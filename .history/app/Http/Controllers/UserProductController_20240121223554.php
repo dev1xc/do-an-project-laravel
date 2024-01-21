@@ -303,11 +303,18 @@ class UserProductController extends Controller
     }
     public function getPriceRange(Request $request)
     {
-        $min = $request->input('min');
-        $max = $request->input('max');
-        $data = Product::whereBetween('price', [$min, $max])->paginate(9);
-        //  return response()->json($result);
-        return view('frontend.shop.search', compact('data'));
-        // return redirect('/get-price-range')->with(compact('data'));
+        $min = $request->get('min');
+        $max = $request->get('max');
+        session()->put('priceRange', [$min, $max]);
+        $data = DB::table('product')->whereBetween('price', [$min, $max])->all();
+        return response()->json($data);
+    }
+    public function yourMethod()
+    {
+        $data = array(
+            'message' => 'This is the message',
+            'value' => 'This is the value'
+        );
+        return response()->json($data);
     }
 }

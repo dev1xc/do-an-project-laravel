@@ -150,7 +150,7 @@
                      $max = $getPriceRange[1];
                      }
                   @endphp --}}
-                  <Button id="price-range">GOGO</Button>
+                  <a href="/get-price-range?min={{ $min }}&max={{ $max }}">Find</a>
 
                   <div class="shipping text-center"><!--shipping-->
                      <img src="images/home/shipping.jpg" alt="" />

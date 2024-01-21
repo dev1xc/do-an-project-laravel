@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Image;
 
 class UserProductController extends Controller
@@ -168,6 +167,8 @@ class UserProductController extends Controller
     public function search(Request $request)
     {
         $value = $request->except('_token');
+        $min = $request->get('min');
+        $max = $request->get('max');
         $query = Product::query();
 
         if (!empty($value['name'])) {
@@ -209,6 +210,7 @@ class UserProductController extends Controller
         if (isset($cart[$id])) {
             // Nếu đã tồn tại, tăng số lượng lên 1
             $cart[$id]['quantity']++;
+
         } else {
             // Nếu chưa tồn tại, thêm sản phẩm vào giỏ hàng với số lượng là 1
             $cart[$id] = [
@@ -303,11 +305,10 @@ class UserProductController extends Controller
     }
     public function getPriceRange(Request $request)
     {
-        $min = $request->input('min');
-        $max = $request->input('max');
+        $min = $request->get('min');
+        $max = $request->get('max');
+        session()->put('priceRange', [$min, $max]);
         $data = Product::whereBetween('price', [$min, $max])->paginate(9);
-        //  return response()->json($result);
-        return view('frontend.shop.search', compact('data'));
-        // return redirect('/get-price-range')->with(compact('data'));
+        return view('frontend.shop.search', compact('data'))->render();
     }
 }

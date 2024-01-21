@@ -143,14 +143,14 @@
                      <b>0</b> <b class="pull-right">1000</b>
                      </div>
                   </div><!--/price-range-->
-                  {{-- @php
+                  @php
                      $getPriceRange = session()->get('priceRange');
                      if($getPriceRange){
                      $min = $getPriceRange[0];
                      $max = $getPriceRange[1];
                      }
-                  @endphp --}}
-                  <Button id="price-range">GOGO</Button>
+                  @endphp
+                  {{-- <a href="/get-price-range?min={{ $min }}&max={{ $max }}">Find</a> --}}
 
                   <div class="shipping text-center"><!--shipping-->
                      <img src="images/home/shipping.jpg" alt="" />

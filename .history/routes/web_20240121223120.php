@@ -82,7 +82,8 @@ Route::get('/get-rate-star', [RateController::class, 'create']);
 // Route::post('/get-rate-star',[RateController::class, 'create']);
 
 //get price range
-Route::get('/get-price-range', [UserProductController::class, 'getPriceRange'])->name('price.range');
+Route::get('/get-price-range', [UserProductController::class, 'getPriceRange'])->name('price-range');
+Route::get('/your-url', [UserProductController::class, 'yourMethod'])->name('your-url');
 //get shop
 Route::get('/shop', [UserProductController::class, 'getAllProduct']);
 //search
