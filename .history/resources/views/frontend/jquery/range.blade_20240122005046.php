@@ -188,11 +188,13 @@
                     min: minValue,
                     max: maxValue
                 },
-                success: function (response) {
-                    $('div.features_items').html(response)
-
+                success: function (data) {
+                    updateProductList(data);
                 }
             });
+
+        }
+    });
 
 		},
 

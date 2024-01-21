@@ -1,5 +1,5 @@
-@extends('frontend.layouts.main')
-@section('content')
+
+
 @php
     foreach ($data as $item) {
         $item['image'] = json_decode($item['image'], true);
@@ -139,11 +139,10 @@
                     <div class="price-range"><!--price-range-->
                         <h2>Price Range</h2>
                         <div class="well">
-                          <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="1000"
-                           data-slider-step="5" data-slider-value="[0,1000]" id="sl2"><br />
-                        <b>0</b> <b class="pull-right">1000</b>
+                             <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+                             <b>$ 0</b> <b class="pull-right">$ 600</b>
                         </div>
-                     </div><!--/price-range-->
+                    </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
                         <img src="images/home/shipping.jpg" alt="" />
@@ -159,7 +158,7 @@
                     <button type="submit">Search</button>
                 </form>
                 <br><br><br>
-                <div class="features_items_123"><!--features_items-->
+                <div class="features_items"><!--features_items-->
 
                     @foreach ($data as $item)
                     <div class="col-sm-4">
@@ -200,4 +199,4 @@
         </div>
     </div>
 </section>
-@endsection
+

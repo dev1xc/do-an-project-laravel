@@ -139,7 +139,7 @@
                      <h2>Price Range</h2>
                      <div class="well">
                        <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="1000"
-                        data-slider-step="5" data-slider-value="[0,1000]" id="sl2"><br />
+                        data-slider-step="5" data-slider-value="[250,1000]" id="sl2"><br />
                      <b>0</b> <b class="pull-right">1000</b>
                      </div>
                   </div><!--/price-range-->
@@ -192,11 +192,42 @@
                   <button type="submit">Search</button>
                </form>
                <br><br><br>
-               <div class="features_items">
+               <div class="features_items"><!--features_items-->
 
+                  {{-- @foreach ($data as $item)
+                     <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                           <div class="single-products" id="{{ $item->id }}">
+                              <div class="productinfo text-center">
+                                 <img src="{{ asset('/upload/product/' . $item->id_user . '/' . $item->image[0]) }}" />
+                                 <h2>{{ $item->name }}</h2>
+                                 <p>{{ $item->price }}</p>
+                                 <a href="#" class="btn btn-default add-to-cart"><i
+                                       class="fa fa-shopping-cart"></i>Add to cart</a>
+                              </div>
+                              <div class="product-overlay">
+                                 <div class="overlay-content">
+                                    <h2>{{ $item->name }}</h2>
+                                    <p>{{ $item->price }}</p>
+                                    <a class="btn btn-default add-to-cart" id="{{ $item->id }}"><i
+                                          class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href="/detail-product/{{ $item->id }}" class="btn btn-default add-to-cart"><i
+                                          class="fa fa-shopping-cart"></i>Detail</a>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="choose">
+                              <ul class="nav nav-pills nav-justified">
+                                 <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                                 <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  @endforeach --}}
+                  @include('frontend.shop.test')
 
-
-               </div>
+               </div><!--features_items-->
                {{ $data->links() }}
             </div>
          </div>

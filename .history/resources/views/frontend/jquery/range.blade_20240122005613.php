@@ -189,7 +189,7 @@
                     max: maxValue
                 },
                 success: function (response) {
-                    $('div.features_items').html(response)
+                    // $('div.features_items').html(response)
 
                 }
             });

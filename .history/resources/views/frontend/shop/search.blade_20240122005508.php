@@ -159,7 +159,7 @@
                     <button type="submit">Search</button>
                 </form>
                 <br><br><br>
-                <div class="features_items_123"><!--features_items-->
+                <div class="features_items"><!--features_items-->
 
                     @foreach ($data as $item)
                     <div class="col-sm-4">
