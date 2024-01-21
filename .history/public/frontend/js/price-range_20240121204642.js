@@ -195,20 +195,6 @@ let minValue,maxValue = 0;
 				);
 				this.tooltip[0].style[this.stylePos] = this.size * this.percentage[0]/100 - (this.orientation === 'vertical' ? this.tooltip.outerHeight()/2 : this.tooltip.outerWidth()/2) +'px';
 			}
-            // window.location.href = '/get-price-range?min='+min+'$max='+max;
-            $.ajax({
-                type: "GET",
-                url: "/get-price-range",
-                data: {
-                    min: minValue,
-                    max: maxValue
-                },
-                success: function (response) {
-                    console.log('success');
-
-                }
-            });
-
 		},
 
 		mousedown: function(ev) {
@@ -406,5 +392,3 @@ let minValue,maxValue = 0;
 	$.fn.slider.Constructor = Slider;
 
 }( window.jQuery );
-
-

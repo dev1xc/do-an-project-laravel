@@ -307,6 +307,6 @@ class UserProductController extends Controller
         $max = $request->get('max');
         session()->put('priceRange', [$min, $max]);
         $data = Product::whereBetween('price', [$min, $max])->paginate(9);
-        return view('frontend.shop.search', compact('data'))->render();
+        return redirect('');
     }
 }
