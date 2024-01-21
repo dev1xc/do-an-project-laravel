@@ -254,7 +254,7 @@
                                             <label>Your Name</label>
                                         </div>
                                         <textarea name="comment" rows="11"></textarea>
-                                        <input type="text" name='blog_father' value="{{ $item -> id_comment }}" hidden>
+                                        <input type="text" name='blog_father' value="{{ $item -> id }}" hidden>
                                         <button type="submit">Submit</button>
                                     </div>
                                 </form>
@@ -262,15 +262,15 @@
                             </div>
                         </div><!--/Repaly Box-->
 
-                        @foreach ($joinInner2 as $son)
-                            @if($item->id_comment == $son->blog_father)
+                        @foreach ($data_cmt_son as $son)
+                            @if($item->id == $son->blog_father)
                             <li class="media second-media">
                                 <a class="pull-left" href="#">
                                     <img class="media-object" src="images/blog/man-three.jpg" alt="">
                                 </a>
                                 <div class="media-body">
                                     <ul class="sinlge-post-meta">
-                                        <li><i class="fa fa-user"></i>{{ $son -> name }}</li>
+                                        <li><i class="fa fa-user"></i>{{ $son -> id_user }}</li>
                                         <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                         <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                     </ul>

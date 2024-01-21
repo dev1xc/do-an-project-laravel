@@ -270,7 +270,7 @@
                                 </a>
                                 <div class="media-body">
                                     <ul class="sinlge-post-meta">
-                                        <li><i class="fa fa-user"></i>{{ $son -> name }}</li>
+                                        <li><i class="fa fa-user"></i>{{ $son -> id_user }}</li>
                                         <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                         <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                     </ul>

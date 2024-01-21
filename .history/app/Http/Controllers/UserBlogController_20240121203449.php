@@ -25,8 +25,8 @@ class UserBlogController extends Controller
         $getAvg = round($getAvg,3);
         $data_cmt = Comment::where('blog_father','=', 0)->where('id_blog','=',$id)->get();
         $data_cmt_son = Comment::where('blog_father','>', 0)->get();
-        $joinInner = DB::table('comment')->join('users','comment.id_user','=','users.id')->where('comment.blog_father','=',0)->get();
-        $joinInner2 = DB::table('comment')->join('users','comment.id_user','=','users.id')->where('comment.blog_father','>',0)->get();
+        $joinInner = DB::table('comment')->join('users','comment.id_user','=','users.id')->get();
+        $joinInner2 = DB::table('comment')->join('users','comment.id_user','=','users.id')->where('comment.id_blog','>',0)->get();
         $id_get_user = [];
         foreach ($data_cmt_son as $value) {
             $id_get_user[] = $value['id_user'];
@@ -34,7 +34,7 @@ class UserBlogController extends Controller
         $id_get_user = array_unique($id_get_user);
         $getData[] = User::whereIn('id', $id_get_user)->get();
         // $data_people= User::whereIn('id',$data_cmt_son['id_user'])->get();
-        return view('frontend.blog.blog-detail', compact('data','data_cmt','data_cmt_son','getAvg','getData','joinInner','joinInner2'));
+        return view('frontend.blog.blog-detail', compact('data','data_cmt','data_cmt_son','getAvg','getData','joinInner'));
     }
     public function comment($id, Request $request) {
         $id_user = Auth::id();

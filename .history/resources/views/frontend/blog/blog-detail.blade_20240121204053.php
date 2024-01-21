@@ -263,14 +263,14 @@
                         </div><!--/Repaly Box-->
 
                         @foreach ($joinInner2 as $son)
-                            @if($item->id_comment == $son->blog_father)
+                            @if($item->id == $son->blog_father)
                             <li class="media second-media">
                                 <a class="pull-left" href="#">
                                     <img class="media-object" src="images/blog/man-three.jpg" alt="">
                                 </a>
                                 <div class="media-body">
                                     <ul class="sinlge-post-meta">
-                                        <li><i class="fa fa-user"></i>{{ $son -> name }}</li>
+                                        <li><i class="fa fa-user"></i>{{ $son -> id_user }}</li>
                                         <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                         <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                     </ul>
