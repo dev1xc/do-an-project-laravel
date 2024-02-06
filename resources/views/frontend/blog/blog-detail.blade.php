@@ -1,7 +1,18 @@
 @extends('frontend.layouts.main')
 
 @section('content')
+<<<<<<< HEAD
 
+=======
+{{-- @php
+    echo '<pre>';
+        print_r($getData);
+        echo '</pre>';
+        // foreach ($getData as $key => $value) {
+        //     echo $value->id;
+        // }
+@endphp --}}
+>>>>>>> parent of a94c81e (join 2 bang hien ten cmt)
 <section>
     <div class="container">
         <div class="row">
@@ -213,14 +224,14 @@
                 </div> --><!--Comments-->
                 <div class="response-area">
                     <h2>3 RESPONSES</h2>
-                    @foreach ($joinInner as $item)
-                    <ul class="media-list" id="{{ $item->id_comment }}">
-                        <li class="media" id= {{ $item->id_comment }}>
+                    @foreach ($data_cmt as $item)
+                    <ul class="media-list" id="{{ $item->id }}">
+                        <li class="media" id= {{ $item->id }}>
 
                             <a class="pull-left" href="#">
                                 <img class="media-object" src="images/blog/man-two.jpg" alt="">
                             </a>
-                            <div class="media-body" id="{{ $item->id_comment }}">
+                            <div class="media-body" id="{{ $item->id }}">
                                 <ul class="sinlge-post-meta">
                                     {{-- @foreach ($getData as $data)
                                         @if ($item -> id_user == $data->id)
@@ -229,17 +240,16 @@
                                             @endphp
                                         @endif
                                     @endforeach --}}
-                                    <li><i class="fa fa-user"></i>{{ $item -> name }}</li>
                                     <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                     <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                 </ul>
                                 <p>{{ $item -> comment }}</p>
-                                <a class="btn btn-primary reply_comment"  id={{ $item->id_comment }} ><i class="fa fa-reply"></i>Replay</a>
+                                <a class="btn btn-primary reply_comment"  id={{ $item->id }} ><i class="fa fa-reply"></i>Replay</a>
 
 
                             </div>
                         </li>
-                        <div class="replay-box-son" style="display: none" id="{{ $item->id_comment }}">
+                        <div class="replay-box-son" style="display: none" id="{{ $item->id }}">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <h2>Leave a replay</h2>
@@ -250,7 +260,7 @@
                                             <label>Your Name</label>
                                         </div>
                                         <textarea name="comment" rows="11"></textarea>
-                                        <input type="text" name='blog_father' value="{{ $item -> id_comment }}" hidden>
+                                        <input type="text" name='blog_father' value="{{ $item -> id }}" hidden>
                                         <button type="submit">Submit</button>
                                     </div>
                                 </form>
@@ -258,15 +268,15 @@
                             </div>
                         </div><!--/Repaly Box-->
 
-                        @foreach ($joinInner2 as $son)
-                            @if($item->id_comment == $son->blog_father)
+                        @foreach ($data_cmt_son as $son)
+                            @if($item->id == $son->blog_father)
                             <li class="media second-media">
                                 <a class="pull-left" href="#">
                                     <img class="media-object" src="images/blog/man-three.jpg" alt="">
                                 </a>
                                 <div class="media-body">
                                     <ul class="sinlge-post-meta">
-                                        <li><i class="fa fa-user"></i>{{ $son -> name }}</li>
+                                        <li><i class="fa fa-user"></i>{{ $son -> id_user }}</li>
                                         <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                         <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                     </ul>
